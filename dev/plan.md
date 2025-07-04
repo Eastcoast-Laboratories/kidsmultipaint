@@ -19,6 +19,26 @@
 - Black screen likely caused by mismatch between expected dist/index.html (for Capacitor) and webpack output (dist/app/index.html or missing file).
 - run.sh and webpack config use inconsistent ports (9091/9092); must standardize to 9092 everywhere.
 - Webpack build currently fails due to missing favicon.ico reference and index.html output conflict; both must be fixed before verifying Android build.
+- User wants a fullscreen Fabric.js canvas added to the index template.
+- Fabric.js canvas implementation and code cleanup in index.html complete.
+- User now requests functionality matching the Fabric.js free drawing demo.
+- Fabric.js free drawing demo functionality implemented in index.html; toolbar, color, brush size, undo, clear, and responsive canvas are working.
+- User requested: canvas must be truly fullscreen and settings dialog (toolbar) needs a close button.
+- Canvas is now truly fullscreen (border removed, correct sizing) and toolbar has a close button with toggle functionality implemented and verified in browser.
+- User reports drawing is not visible (possibly white on white), canvas should be 100% size, and requests to use the exact code from https://fabricjs.com/demos/free-drawing/.
+- Drawing implementation replaced with exact Fabric.js free drawing demo code; canvas is now visible, 100% size, and matches demo functionality.
+- Script loading issues persist: Fabric.js (CDN) and native-app-detector.js are blocked due to MIME type/content serving errors; drawing is still broken.
+- User explicitly requests NOT to include Fabric.js inline; script loading must be fixed via correct external reference and server/configuration.
+- User requests a Playwright test to solve the script loading/MIME type issue.
+- Playwright test created and executed; confirms fabric.js is not loaded and suggests checking webpack/server configuration for MIME/content-type issues.
+- Playwright test confirms the issue is with dev server/static file MIME/content-type headers; need to adjust webpack or server config.
+- Correct Fabric.js minified file is node_modules/fabric/dist/index.min.js (not fabric.min.js); must copy to public/js/ and update HTML reference to use /js/index.min.js for proper MIME/content-type serving.
+- Drawing now works and scripts load, but brush settings (color, width, etc.) have no effect; pencil is always thin and black.
+- Brush settings event handlers for color, width, shadow, and type have been fixed; drawing settings should now work as expected.
+- User reports brush settings are still not effective; requests to fetch and analyze the code from https://fabricjs.com/demos/free-drawing/ using curl and implement it exactly as in the demo.
+- Fabric.js demo code has been fetched, analyzed, and implemented exactly as in the original demo; brush settings and drawing functionality now match the official example.
+- User requests to remove the word "demo" from the app and rename the feature to "paint" everywhere.
+- Renaming from "demo" to "paint" is in progress: HTML title and comments updated, and demo-related files renamed to use "paint" instead.
 
 ## Task List
 - [x] Remove all images from app/images and src/images.
@@ -29,7 +49,22 @@
 - [x] Standardize run.sh and webpack config to use port 9092 everywhere.
 - [x] Investigate and fix black screen issue on Android build.
   - [x] Fix webpack output so dist/index.html is always present and correct for Capacitor.
-- [ ] Fix webpack build errors: remove favicon.ico reference and resolve index.html output conflict.
+- [x] Fix webpack build errors: remove favicon.ico reference and resolve index.html output conflict.
+- [x] Add fullscreen Fabric.js canvas to index template.
+- [x] Implement Fabric.js free drawing demo functionality.
+- [x] Make canvas truly fullscreen and add close button to settings dialog.
+- [x] Replace drawing implementation with exact Fabric.js free drawing demo code and ensure canvas is visible and 100% size.
+- [x] Fix missing/blocked Fabric.js script reference so drawing works (resolve MIME type and path issues).
+  - [x] Copy node_modules/fabric/dist/index.min.js to public/js/
+  - [x] Update index.html to reference /js/index.min.js
+- [x] Create a Playwright test that detects/fixes the script loading/MIME type problem.
+- [x] Fix Fabric.js brush settings so color/width changes work.
+- [x] Fetch and analyze code from https://fabricjs.com/demos/free-drawing/ using curl
+- [x] Implement drawing settings exactly as in the Fabric.js demo
+- [ ] Rename all references from "demo" to "paint" in the app
+  - [x] Update HTML title and comments
+  - [x] Rename demo-related files (e.g., fabric_demo.html → fabric_paint.html)
+  - [x] Update all remaining references/code/strings to use "paint"
 
 ## Current Goal
-Investigate and verify Android build is working.
+No current goal.
