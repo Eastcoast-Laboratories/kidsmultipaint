@@ -194,6 +194,77 @@ npm run build:fast
 echo "###### 4a. Building web application..."
 npm run build
 
+# Function to align package names between capacitor.config.json and Android files
+align_package_names() {
+  echo "###### 5. Checking package name consistency..."
+  
+  # Get appId from capacitor.config.json
+  CONFIG_FILE="capacitor.config.json"
+  if [ ! -f "$CONFIG_FILE" ]; then
+    echo "Error: capacitor.config.json not found!"
+    return 1
+  fi
+  
+  # Extract appId using grep and sed
+  APP_ID=$(grep -o '"appId"[[:space:]]*:[[:space:]]*"[^"]*"' "$CONFIG_FILE" | sed 's/"appId"[[:space:]]*:[[:space:]]*"\([^"]*\)"/\1/')
+  
+  if [ -z "$APP_ID" ]; then
+    echo "Error: Could not find appId in capacitor.config.json"
+    return 1
+  fi
+  
+  echo "Found appId in capacitor.config.json: $APP_ID"
+  
+  # Convert from com.example.app to com/example/app for directory structure
+  PACKAGE_DIR_PATH=$(echo "$APP_ID" | tr '.' '/')
+  ANDROID_SRC_DIR="android/app/src/main/java"
+  TARGET_DIR="$ANDROID_SRC_DIR/$PACKAGE_DIR_PATH"
+  
+  # Find MainActivity.java (could be in wrong location)
+  MAIN_ACTIVITY_FILES=$(find "$ANDROID_SRC_DIR" -name "MainActivity.java")
+  
+  if [ -z "$MAIN_ACTIVITY_FILES" ]; then
+    echo "Warning: MainActivity.java not found in Android project!"
+    return 1
+  fi
+  
+  for MAIN_ACTIVITY_FILE in $MAIN_ACTIVITY_FILES; do
+    # Extract package from MainActivity.java
+    CURRENT_PACKAGE=$(grep -o 'package[[:space:]]*[^;]*;' "$MAIN_ACTIVITY_FILE" | sed 's/package[[:space:]]*\([^;]*\);/\1/')
+    
+    if [ "$CURRENT_PACKAGE" != "$APP_ID" ]; then
+      echo "Package mismatch detected:"
+      echo "  - In capacitor.config.json: $APP_ID"
+      echo "  - In MainActivity.java: $CURRENT_PACKAGE"
+      
+      # Create target directory if it doesn't exist
+      mkdir -p "$TARGET_DIR"
+      
+      # Fix package declaration in file
+      sed -i "s/package[[:space:]]*[^;]*;/package $APP_ID;/" "$MAIN_ACTIVITY_FILE"
+      
+      # If MainActivity.java is not in the right directory, move it
+      if [ "$(dirname "$MAIN_ACTIVITY_FILE")" != "$TARGET_DIR" ]; then
+        echo "Moving MainActivity.java to correct package directory:"
+        echo "  From: $MAIN_ACTIVITY_FILE"
+        echo "  To: $TARGET_DIR/MainActivity.java"
+        
+        # Make sure target directory exists
+        mkdir -p "$TARGET_DIR"
+        
+        # Move the file
+        mv "$MAIN_ACTIVITY_FILE" "$TARGET_DIR/"
+        
+        echo "MainActivity.java moved and package declaration updated."
+      else
+        echo "MainActivity.java is in the correct directory, only package declaration updated."
+      fi
+    else
+      echo "Package names are consistent: $APP_ID"
+    fi
+  done
+}
+
 # Copy public directory contents to dist, excluding android directory (only needed for web dev server)
 # Note: The android/ directory in public/ contains XML files for the webpack dev server
 # The actual native Android app uses the XML files in the main android/ directory
@@ -209,6 +280,9 @@ echo "Copying package.json to dist for version information..."
 cp package.json dist/
 
 # Sync with Capacitor
+echo "###### 5a. Checking and aligning package names..."
+align_package_names
+
 echo "###### 6. Syncing with Capacitor..."
 
 # Kopieren der app/-Inhalte nach dist/, damit Capacitor sie findet
