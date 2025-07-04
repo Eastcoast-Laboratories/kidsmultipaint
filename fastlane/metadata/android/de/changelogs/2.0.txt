@@ -1,0 +1,9 @@
+- Deutsche Übersetzung
+- Back-Gesture auf Android
+- Reset-Buttons für Fortschritt
+- Zeichne eine Melodie:
+  - Frei zeichnen: bis zu 32 Noten
+  - Hilfslinien für Notenpositionen im Herausforderungsmodus
+- Klingt es richtig?:
+  - Neue Melodien
+  - Tierbilder aktualisiert und verbessert

@@ -1,0 +1,102 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+app/*.js
+app/*.js.map
+app/*.css
+app/*.html
+app/*.json
+app/images/
+app/main.*
+app/strings-*.xml
+app/index.html
+app/homepage/images/screenshots/
+app/homepage/images/logo_bird_sings.jpg
+/app/partials/*
+/app/robots.txt
+/app/sitemap.xml
+
+# Generated XML files for web development (copied from android/app/src/main/res/)
+public/android/
+
+# IDE files
+.vscode/
+# IntelliJ IDEA - ignore user-specific files only
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/dictionaries/
+.idea/shelf/
+.idea/caches/
+.idea/dataSources/
+.idea/dataSources.ids
+.idea/dataSources.local.xml
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+.idea/dbnavigator.xml
+# Also ignore user-specific files in android/.idea/
+android/.idea/workspace.xml
+android/.idea/tasks.xml
+android/.idea/usage.statistics.xml
+android/.idea/dictionaries/
+android/.idea/shelf/
+android/.idea/dataSources/
+android/.idea/dataSources.ids
+android/.idea/dataSources.local.xml
+android/.idea/sqlDataSources.xml
+android/.idea/dynamic.xml
+android/.idea/uiDesigner.xml
+android/.idea/dbnavigator.xml
+# Editor-Verzeichnisse und Dateien
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Capacitor und iOS spezifisch
+/ios/App/App/public/
+/ios/App/Pods/
+/ios/DerivedData/
+/ios/App/App/Plugins/
+/ios/App/App/capacitor.config.json
+
+# Android spezifisch
+/android/app/src/main/assets/public/
+/android/.gradle/
+/android/app/release/
+/android/app/src/
+/android/app/build/
+/android/build/
+/android/captures/
+/android/local.properties
+/playwright-report/
+/test-results/
+/tests/*png
+/public/strings*.xml
+/data/referrals.db
+
+# Admin dashboard
+/admin/
+/app/favicon.ico
+/app/icons/apple-touch-icon.png
+/app/icons/icon-192.png
+/app/icons/icon-512.png
+/app/android/app/src/main/res/values*/strings*.xml
+/android/.idea/deploymentTargetSelector.xml
+/android/.idea/deviceManager.xml
+/.idea/misc.xml
+/.idea/vcs.xml

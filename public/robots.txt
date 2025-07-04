@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://multipaint.z11.de/sitemap.xml
