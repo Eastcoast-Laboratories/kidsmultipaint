@@ -38,7 +38,18 @@
 - User reports brush settings are still not effective; requests to fetch and analyze the code from https://fabricjs.com/demos/free-drawing/ using curl and implement it exactly as in the demo.
 - Fabric.js demo code has been fetched, analyzed, and implemented exactly as in the original demo; brush settings and drawing functionality now match the official example.
 - User requests to remove the word "demo" from the app and rename the feature to "paint" everywhere.
-- Renaming from "demo" to "paint" is in progress: HTML title and comments updated, and demo-related files renamed to use "paint" instead.
+- Renaming from "demo" to "paint" is complete: HTML title and comments updated, and demo-related files renamed to use "paint" instead.
+- All references from "demo" to "paint" have been updated. The application is now fully using the "paint" naming.
+- New issue: On Android/mobile, the app only shows a black screen and throws a java.lang.ClassNotFoundException for com.multipaint.app.MainActivity. This must be diagnosed and fixed before proceeding.
+- Diagnosis: MainActivity.java is located at com/lalumo/app/MainActivity.java, but Capacitor/appId expects com.multipaint.app.MainActivity. This package mismatch is likely causing the ClassNotFoundException.
+- Fix applied: MainActivity.java package declaration updated and file moved to com/multipaint/app/. build.gradle and AndroidManifest.xml checked for consistency. Capacitor sync completed.
+- Added align_package_names() function to mobile-build.sh to automatically check and fix package name consistency between capacitor.config.json and Android MainActivity.java before each build, preventing future package mismatch errors.
+- Added requirement: Integrate the same child lock (Kindersicherung) as implemented in Musici, referencing Musici's index.html:L82-L102 and app.js:L777-L827 for button, progress indicator, and unlock logic.
+- User clarified: The lock should only disable/protect the settings button, not overlay or block the painting canvas. Painting must always remain accessible, only settings access should require unlock.
+- Child lock implementation has been fixed: it now only disables the settings button, leaving the paint canvas always accessible. No overlay blocks painting anymore.
+- User reports regression: cannot paint on canvas and settings button does not open after recent changes.
+- JavaScript error: "can't access lexical declaration 'settingsToggle' before initialization" in toggleMenuLock must be fixed.
+- Regression fixed: toolbar variable declarations moved before usage; painting and settings functionality restored.
 
 ## Task List
 - [x] Remove all images from app/images and src/images.
@@ -61,10 +72,22 @@
 - [x] Fix Fabric.js brush settings so color/width changes work.
 - [x] Fetch and analyze code from https://fabricjs.com/demos/free-drawing/ using curl
 - [x] Implement drawing settings exactly as in the Fabric.js demo
-- [ ] Rename all references from "demo" to "paint" in the app
+- [x] Rename all references from "demo" to "paint" in the app
   - [x] Update HTML title and comments
   - [x] Rename demo-related files (e.g., fabric_demo.html → fabric_paint.html)
   - [x] Update all remaining references/code/strings to use "paint"
+- [x] Diagnose and fix Android/mobile black screen and MainActivity ClassNotFoundException
+  - [x] Align Android MainActivity package name with appId in capacitor.config.json (should be com.multipaint.app)
+  - [x] Move MainActivity.java to correct directory structure (com/multipaint/app/)
+  - [x] Check AndroidManifest.xml and build.gradle for correct package/applicationId
+  - [x] Run npx cap sync android to update project
+  - [x] Verify Android build after package fix
+- [x] Integrate Musici-style child lock (Kindersicherung) in paint app
+  - [x] Add lock button and progress indicator to index.html
+  - [x] Implement long-press unlock/cancel logic in JS (see Musici)
+  - [x] Ensure accessibility and responsive behavior
+- [x] Adjust child lock so it only protects the settings button (not the whole app/canvas)
+- [x] Fix regression: restore painting functionality and fix settings button (JS error with settingsToggle)
 
 ## Current Goal
-No current goal.
+Awaiting next user instruction.

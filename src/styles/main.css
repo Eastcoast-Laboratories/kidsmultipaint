@@ -867,8 +867,18 @@ body {
   margin-left: 0.4rem;
   z-index: 2500; /* Highest z-index to appear above absolutely everything */
   transition: all 0.3s ease;
+  width: 60px;
+  left: 2px;
+  top: -51px;
 }
 
+#settings-toggle{
+  position: fixed; 
+  top: 10px; 
+  right: 10px; /* Changed from left to right for top right corner */
+  z-index: 101;
+  width: 100px; /* Added fixed width as requested */
+}
 /* Root-Level CSS Variable für den Entsperr-Fortschritt */
 :root {
   --unlock-progress: 0;

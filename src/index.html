@@ -9,6 +9,11 @@
   <!-- Fabric.js library (local version) -->
   <script src="/js/index.min.js"></script>
   <style>
+    /* CSS Variable for unlock progress */
+    :root {
+      --unlock-progress: 0;
+    }
+    
     /* Fullscreen canvas styling */
     body {
       margin: 0;
@@ -47,6 +52,54 @@
       display: block;
       margin-bottom: 5px;
     }
+    
+    /* Menu Lock Button Styling */
+    .menu-lock-button {
+      position: fixed;
+      right: 10px;
+      top: 10px;
+      z-index: 200;
+      background-color: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    .lock-icon-container {
+      position: relative;
+      width: 24px;
+      height: 24px;
+      margin-bottom: 4px;
+    }
+    
+    .lock-icon {
+      width: 24px;
+      height: 24px;
+      color: #333;
+    }
+    
+    .lock-progress-indicator {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: conic-gradient(#3498db calc(var(--unlock-progress) * 360deg), transparent 0);
+      z-index: -1;
+    }
+    
+    .lock-hint {
+      font-size: 10px;
+      max-width: 100px;
+      text-align: center;
+      color: #333;
+    }
 
     input[type="range"] {
       width: 100%;
@@ -73,13 +126,29 @@
   </style>
 </head>
 <body>
+  <!-- Child Lock button with progress indicator -->
+  <button id="menu-lock-button" class="menu-lock-button">
+    <div class="lock-icon-container">
+      <div class="lock-progress-indicator" id="lock-progress-indicator"></div>
+      <div class="lock-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" id="locked-icon">
+          <path d="M12 1C8.676 1 6 3.676 6 7v2H4v14h16V9h-2V7c0-3.324-2.676-6-6-6zm0 2c2.276 0 4 1.724 4 4v2H8V7c0-2.276 1.724-4 4-4zm0 10c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" id="unlocked-icon" style="display:none;">
+          <path d="M12 1C8.676 1 6 3.676 6 7v2h4V7c0-1.104.896-2 2-2s2 .896 2 2v2h4V7c0-3.324-2.676-6-6-6zm0 20c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm6-9H6v8h12v-8z"/>
+        </svg>
+      </div>
+    </div>
+    <span class="lock-hint" id="lock-hint">Hold 3 sec. to unlock</span>
+  </button>
+  
   <div id="canvas-container">
     <!-- The canvas will be created here by Fabric.js -->
     <canvas id="c" width="1000" height="600"></canvas>
   </div>
   
   <!-- Settings toggle button (always visible) -->
-  <button id="settings-toggle" style="position: fixed; top: 10px; left: 10px; z-index: 101;">⚙️ Settings</button>
+  <button id="settings-toggle">⚙️ Settings</button>
   
   <div id="toolbar" style="display: none;">
     <button id="close-toolbar" style="float:right; background-color: #dc3545;">✖</button>
@@ -133,10 +202,105 @@
   <script>
     // Initialize Fabric canvas when the page is fully loaded
     document.addEventListener('DOMContentLoaded', function() {
-      // Toolbar toggle functionality
+      // Menu lock state and variables
+      let menuLocked = true;
+      let unlockInterval = null;
+      let unlockProgress = 0;
+      
+      // Get all UI elements first
+      // Toolbar elements
       const toolbar = document.getElementById('toolbar');
       const settingsToggle = document.getElementById('settings-toggle');
       const closeToolbar = document.getElementById('close-toolbar');
+      
+      // Child lock functionality elements
+      const menuLockButton = document.getElementById('menu-lock-button');
+      const lockedIcon = document.getElementById('locked-icon');
+      const unlockedIcon = document.getElementById('unlocked-icon');
+      const lockHint = document.getElementById('lock-hint');
+      
+      // Toggle menu lock state
+      function toggleMenuLock() {
+        menuLocked = !menuLocked;
+        
+        if (menuLocked) {
+          // Lock the menu
+          lockedIcon.style.display = '';
+          unlockedIcon.style.display = 'none';
+          lockHint.textContent = 'Hold 3 sec. to unlock';
+          lockHint.style.display = '';
+          
+          // Hide settings button when locked
+          settingsToggle.style.display = 'none';
+        } else {
+          // Unlock the menu
+          lockedIcon.style.display = 'none';
+          unlockedIcon.style.display = '';
+          lockHint.style.display = 'none';
+          
+          // Show settings toggle when unlocked
+          settingsToggle.style.display = 'block';
+        }
+      }
+      
+      // Start the unlock process with progress indicator
+      function startLongPressUnlock() {
+        if (!menuLocked) {
+          // If not locked, simply lock it immediately
+          toggleMenuLock();
+          return;
+        }
+        
+        // Variable to track the unlock progress
+        unlockProgress = 0;
+        
+        // Start the interval that will increment the progress
+        unlockInterval = setInterval(() => {
+          unlockProgress += 0.05; // Increment by 5% every 150ms
+          
+          // Update the visual indicator
+          document.documentElement.style.setProperty('--unlock-progress', unlockProgress);
+          
+          // Check if we've reached 100% (3 seconds)
+          if (unlockProgress >= 1) {
+            // Clear the interval
+            clearInterval(unlockInterval);
+            unlockInterval = null;
+            
+            // Unlock the menu
+            toggleMenuLock();
+            console.log('Menu unlocked after long press');
+            
+            // Reset progress
+            unlockProgress = 0;
+            document.documentElement.style.setProperty('--unlock-progress', 0);
+          }
+        }, 150);
+      }
+      
+      // Cancel the unlock process if the user releases before completion
+      function cancelLongPressUnlock() {
+        if (unlockInterval) {
+          clearInterval(unlockInterval);
+          unlockInterval = null;
+          unlockProgress = 0;
+          document.documentElement.style.setProperty('--unlock-progress', 0);
+          console.log('Unlock canceled');
+        }
+      }
+      
+      // Add event listeners for the menu lock button
+      menuLockButton.addEventListener('mousedown', startLongPressUnlock);
+      menuLockButton.addEventListener('mouseup', cancelLongPressUnlock);
+      menuLockButton.addEventListener('mouseleave', cancelLongPressUnlock);
+      menuLockButton.addEventListener('touchstart', startLongPressUnlock);
+      menuLockButton.addEventListener('touchend', cancelLongPressUnlock);
+      menuLockButton.addEventListener('touchcancel', cancelLongPressUnlock);
+      
+      // Initialize menu in locked state
+      toggleMenuLock();
+      
+      // Toolbar toggle functionality
       
       settingsToggle.onclick = function() {
         toolbar.style.display = 'block';
