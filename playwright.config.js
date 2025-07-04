@@ -47,8 +47,8 @@ module.exports = defineConfig({
   ],
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'echo "Using existing dev server on port 9091"',
-    url: 'http://localhost:9091',
+    command: 'echo "Using existing dev server on port 9092"',
+    url: 'http://localhost:9092',
     reuseExistingServer: true,
     timeout: 5000,
   },

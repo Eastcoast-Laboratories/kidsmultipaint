@@ -94,10 +94,10 @@ to start the app use
 run.sh
 ```
 
-The application will be available at http://localhost:9091 in your browser.
-- Main page: http://localhost:9091/index.html
-- Card library: http://localhost:9091/cards.html
-- Multiplayer mode: http://localhost:9091/multiplayer.html
+The application will be available at http://localhost:9092 in your browser.
+- Main page: http://localhost:9092/index.html
+- Card library: http://localhost:9092/cards.html
+- Multiplayer mode: http://localhost:9092/multiplayer.html
 
 
 # Production

@@ -28,7 +28,7 @@ test.describe('multipaint Hash Navigation', () => {
 
     try {
       // Navigate to the app and wait for it to be ready
-      await page.goto('http://localhost:9091/', { timeout: 5000 });
+      await page.goto('http://localhost:9092/', { timeout: 5000 });
       
       // Kurze Wartezeit für die Initialisierung
       await page.waitForTimeout(500);
@@ -56,7 +56,7 @@ test.describe('multipaint Hash Navigation', () => {
       console.log('TEST: Navigating to Draw Melody via hash...');
       
       // Navigiere direkt zur Draw Melody-Aktivität via Hash
-      await page.goto('http://localhost:9091/#1_pitches-1_2_pitches_draw-melody', { timeout: 5000 });
+      await page.goto('http://localhost:9092/#1_pitches-1_2_pitches_draw-melody', { timeout: 5000 });
       
       // Füge speziellen JavaScript-Code ein, um die Hash-Änderung zu überwachen
       await page.evaluate(() => {
@@ -166,7 +166,7 @@ test.describe('multipaint Hash Navigation', () => {
         console.log(`\nTesting navigation to ${activity.id}...`);
         
         // Navigiere via Hash
-        await page.goto(`http://localhost:9091/#1_pitches-${activity.id}`, { timeout: 5000 });
+        await page.goto(`http://localhost:9092/#1_pitches-${activity.id}`, { timeout: 5000 });
         
         // Warte, bis die Hash-Änderung verarbeitet wurde
         await page.waitForTimeout(1000);
@@ -223,7 +223,7 @@ test.describe('multipaint Hash Navigation', () => {
       
       // Zuerst zu Draw Melody navigieren
       console.log('Navigating to Draw Melody...');
-      await page.goto('http://localhost:9091/#1_pitches-1_2_pitches_draw-melody', { timeout: 5000 });
+      await page.goto('http://localhost:9092/#1_pitches-1_2_pitches_draw-melody', { timeout: 5000 });
       await page.waitForTimeout(1000);
       
       // Erzwinge Modus-Update für Draw Melody
@@ -247,7 +247,7 @@ test.describe('multipaint Hash Navigation', () => {
       
       // Dann zum Memory Game navigieren
       console.log('Navigating to Memory Game...');
-      await page.goto('http://localhost:9091/#1_pitches-1_3_pitches_memory-game', { timeout: 5000 });
+      await page.goto('http://localhost:9092/#1_pitches-1_3_pitches_memory-game', { timeout: 5000 });
       await page.waitForTimeout(1000);
       
       // Erzwinge Modus-Update für Memory Game

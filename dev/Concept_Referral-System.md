@@ -153,7 +153,7 @@ Die PHP-Dateien (`referral.php`, `admin.php`) und die Datenbankdatei müssen auf
  - [ ] referral js popup geht nicht, da steht nur "Array"
  - [ ] save sortable flag in session
 
-- [x] teste selbst mit wegt http://localhost:9091/admin.php und mache node test und erstelle einen unittest um das alles zu testen und zu korrigieren. schau dir die bestehen den playwright tests an und baue einen  timeout von 10 s ein damit die seitenn nicht hängen bleiben
+- [x] teste selbst mit wegt http://localhost:9092/admin.php und mache node test und erstelle einen unittest um das alles zu testen und zu korrigieren. schau dir die bestehen den playwright tests an und baue einen  timeout von 10 s ein damit die seitenn nicht hängen bleiben
 
 - die datenbank soll gegen sql-attacks sicher sein, SQL inject verhindern.
 

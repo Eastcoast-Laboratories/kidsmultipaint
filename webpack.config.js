@@ -60,7 +60,7 @@ module.exports = (env, argv) => {
           watch: true
         }
       ],
-      port: 9091,
+      port: 9092,
       hot: true,
       open: true,
       watchFiles: {
@@ -163,6 +163,24 @@ module.exports = (env, argv) => {
         }
       }),
       
+      // Root index.html for Capacitor compatibility
+      new HtmlWebpackPlugin({
+        template: './src/index.html',
+        filename: 'index.html',
+        chunks: ['main'],
+        inject: true,
+        hash: true,
+        publicPath: isProduction && env.deploy === 'subdirectory' ? './' : './',
+        minify: {
+          collapseWhitespace: true,
+          removeComments: true,
+          removeRedundantAttributes: true,
+          removeScriptTypeAttributes: true,
+          removeStyleLinkTypeAttributes: true,
+          useShortDoctype: true
+        }
+      }),
+      
       // Englische Homepage-Templates (root)
       ...homepageTemplates.map(template => new HtmlWebpackPlugin({
         template: `${template.template}?language=en`, // Query-Parameter hinzufügen, um Template-Caching zu verhindern
@@ -202,10 +220,7 @@ module.exports = (env, argv) => {
           { from: 'public/images', to: 'images' },
           { from: 'public/images', to: 'de/images' },
           { from: 'public/images', to: 'app/images' },  // Auch für App-Verzeichnis kopieren
-          { 
-            from: 'src/favicon.ico',
-            to: 'de/favicon.ico'
-          },
+          // Favicon removed as part of minimal template conversion
           { 
             from: 'public/strings-*.xml',
             to: 'app/[name][ext]'

@@ -7,7 +7,7 @@
 const configData = {
   development: {
     API_BASE_URL: 'http://localhost:8080',
-    APP_BASE_URL: 'http://localhost:9091',
+    APP_BASE_URL: 'http://localhost:9092',
     APP_BASE_PATH: '/'
   },
   production: {

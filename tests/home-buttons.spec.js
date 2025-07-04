@@ -23,7 +23,7 @@ test.describe('multipaint Home Button Navigation', () => {
     });
 
     // Navigate to the app
-    await page.goto('http://localhost:9091/', { timeout: 5000 });
+    await page.goto('http://localhost:9092/', { timeout: 5000 });
     
     // Wait for initial load
     await page.waitForTimeout(1000);
