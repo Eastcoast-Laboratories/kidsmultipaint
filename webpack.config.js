@@ -145,6 +145,20 @@ module.exports = (env, argv) => {
       ],
     },
     plugins: [
+      // Copy Fabric.js and native-app-detector.js with correct MIME types
+      new CopyWebpackPlugin({
+        patterns: [
+          { 
+            from: 'node_modules/fabric/dist/index.min.js', 
+            to: 'js/fabric.min.js',
+            info: { minimized: true }
+          },
+          { 
+            from: 'src/native-app-detector.js', 
+            to: 'js/native-app-detector.js' 
+          },
+        ],
+      }),
       // Hauptapp index.html unter /app/index.html
       new HtmlWebpackPlugin({
         template: './src/index.html',
@@ -184,7 +198,7 @@ module.exports = (env, argv) => {
       // Englische Homepage-Templates (root)
       ...homepageTemplates.map(template => new HtmlWebpackPlugin({
         template: `${template.template}?language=en`, // Query-Parameter hinzufügen, um Template-Caching zu verhindern
-        filename: template.filename,
+        filename: template.filename === 'index.html' ? 'homepage/index.html' : template.filename, // Rename homepage index.html to avoid conflict
         publicPath: '/',
         minify: false,
         inject: false,
@@ -196,7 +210,7 @@ module.exports = (env, argv) => {
       // Deutsche Homepage-Templates (de/)
       ...homepageTemplates.map(template => new HtmlWebpackPlugin({
         template: `${template.template}?language=de`, // Query-Parameter hinzufügen, um Template-Caching zu verhindern
-        filename: `de/${template.filename}`,
+        filename: template.filename === 'index.html' ? 'de/homepage/index.html' : `de/${template.filename}`, // Consistent with English templates
         publicPath: '/',
         minify: false,
         inject: false,
