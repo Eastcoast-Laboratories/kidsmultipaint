@@ -22,7 +22,7 @@ export function tonecolors() {
       // Make sure to use tonecolor_ prefix for the app component to recognize
       try {
         // Dispatch a custom event that the app component will listen for
-        window.dispatchEvent(new CustomEvent('multipaint:play-sound', {
+        window.dispatchEvent(new CustomEvent('kidsmultipaint:play-sound', {
           detail: { sound: `tonecolor_${sound}` }
         }));
         console.log(`Dispatched sound event for: tonecolor_${sound}`);

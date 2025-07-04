@@ -1,15 +1,15 @@
-multipaint
+kidsmultipaint
 ======
 
 Learn music with animal friends, melodies, and puzzles – playful and colorful!
 
 # Description
 
-multipaint – Discover Music with Heart and Ear
+kidsmultipaint – Discover Music with Heart and Ear
 
-With multipaint, children dive into the colorful world of music! In a playful way and with lovingly designed animal characters, they learn about pitch, melody, timbre, and rhythm – all without any prior knowledge.
+With kidsmultipaint, children dive into the colorful world of music! In a playful way and with lovingly designed animal characters, they learn about pitch, melody, timbre, and rhythm – all without any prior knowledge.
 
-What can your child expect in multipaint?
+What can your child expect in kidsmultipaint?
 
 - Chapter 1: Pitch & Melody
   This is where it all begins! Children recognize pitches by listening and playing them back.
@@ -23,7 +23,7 @@ What can your child expect in multipaint?
 - Visuals that support understanding Colors, shapes, and motion help children intuitively grasp musical concepts.
 
 Intuitive navigation
-multipaint is specially designed for young children – no complex menus, just a clear, image-based interface with a bird as the play button and more.
+kidsmultipaint is specially designed for young children – no complex menus, just a clear, image-based interface with a bird as the play button and more.
 
 Beautiful illustrations
 The scenes resemble hand-painted picture books: warm, calm, and full of charm.
@@ -40,10 +40,10 @@ Lerne Musik mit Tierfreunden, Melodien und Rätseln – spielerisch & bunt!
 
 # Beschreibung
 
-multipaint – Musik entdecken mit Herz und Ohr
-Mit multipaint tauchen Kinder ab in die bunte Welt der Musik! Spielerisch und mit liebevoll gestalteten Tiercharakteren lernen sie Tonhöhen, Melodien, Klangfarben und Rhythmen kennen – ganz ohne Vorkenntnisse.
+kidsmultipaint – Musik entdecken mit Herz und Ohr
+Mit kidsmultipaint tauchen Kinder ab in die bunte Welt der Musik! Spielerisch und mit liebevoll gestalteten Tiercharakteren lernen sie Tonhöhen, Melodien, Klangfarben und Rhythmen kennen – ganz ohne Vorkenntnisse.
 
-🎶 Was erwartet dein Kind in multipaint?
+🎶 Was erwartet dein Kind in kidsmultipaint?
 
 - Kapitel 1: Tonhöhen & Melodien
 - Hier beginnt alles! Kinder erkennen Tonhöhen durch Hören, und Nachspielen.
@@ -58,7 +58,7 @@ Mit multipaint tauchen Kinder ab in die bunte Welt der Musik! Spielerisch und mi
 - Farben, Formen und Bewegungen machen Musik intuitiv begreifbar.
 
 🐦 Intuitive Bedienung
-multipaint ist speziell für kleine Kinder entwickelt – keine komplizierten Menüs, sondern eine klare, bildgestützte Navigation mit Play-Button-Vogel und Co.
+kidsmultipaint ist speziell für kleine Kinder entwickelt – keine komplizierten Menüs, sondern eine klare, bildgestützte Navigation mit Play-Button-Vogel und Co.
 
 🌸 Wunderschöne Illustrationen. Die Szenen erinnern an handgemalte Bilderbücher: liebevoll, ruhig, warm.
 
@@ -120,7 +120,7 @@ npm run build:fast
 
 # Online Deployment
 
-The application is deployed at: https://multipaint.z11.de/
+The application is deployed at: https://kidsmultipaint.z11.de/
 
 To update the online version, follow these steps from the project's root directory:
 
@@ -132,7 +132,7 @@ npm run build
 ls -la dist/
 
 # 3. Upload to the server (make sure you're in the project root directory)
-rsync -avz --no-perms --no-owner --no-group --delete dist/ root@vm06.eclabs:/var/kunden/webs/ruben/www/multipaint.z11.de/
+rsync -avz --no-perms --no-owner --no-group --delete dist/ root@vm06.eclabs:/var/kunden/webs/ruben/www/kidsmultipaint.z11.de/
 
 # 4. Resume development (optional)
 npm run watch

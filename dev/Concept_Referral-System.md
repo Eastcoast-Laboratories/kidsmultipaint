@@ -1,8 +1,8 @@
-# multipaint Referral-System - Technische Dokumentation
+# kidsmultipaint Referral-System - Technische Dokumentation
 
 ## Überblick
 
-Das multipaint Referral-System ermöglicht es Benutzern, ihre Freunde zur App einzuladen und dafür Belohnungen zu erhalten. Die Implementierung umfasst Frontend-Komponenten in der Web-App (Alpine.js) und Backend-Services (PHP/SQLite).
+Das kidsmultipaint Referral-System ermöglicht es Benutzern, ihre Freunde zur App einzuladen und dafür Belohnungen zu erhalten. Die Implementierung umfasst Frontend-Komponenten in der Web-App (Alpine.js) und Backend-Services (PHP/SQLite).
 
 ## Belohnungsstruktur
 

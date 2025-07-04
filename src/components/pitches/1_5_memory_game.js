@@ -26,7 +26,7 @@ export function reset_1_5_MemoryGame_Progress(component) {
   component.userSequence = [];
   
   // Clear localStorage
-  localStorage.removeItem('multipaint_memory_level');
+  localStorage.removeItem('kidsmultipaint_memory_level');
   
   // Update progress object
   component.progress['1_5_pitches_memory-game'] = 0;

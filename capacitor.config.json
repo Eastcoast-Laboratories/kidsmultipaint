@@ -1,6 +1,6 @@
 {
-  "appId": "multipaint.z11.de",
-  "appName": "multipaint",
+  "appId": "kidsmultipaint.z11.de",
+  "appName": "kidsmultipaint",
   "webDir": "dist",
   "bundledWebRuntime": false,
   "plugins": {

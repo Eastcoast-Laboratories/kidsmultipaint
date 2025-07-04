@@ -9,7 +9,7 @@ ini_set('display_errors', 1);
 require_once 'utils/common.php'; // für debugging-Funktionen
 require_once 'db_functions.php'; // für Datenbankstruktur-Funktionen
 
-echo "<h1>multipaint Datenbankstruktur-Test</h1>";
+echo "<h1>kidsmultipaint Datenbankstruktur-Test</h1>";
 echo "<pre>";
 
 // SQLite-Datenbank einrichten

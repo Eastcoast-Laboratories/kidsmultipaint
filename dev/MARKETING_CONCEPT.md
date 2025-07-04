@@ -1,4 +1,4 @@
-Musici/multipaint - Marketing- und Monetarisierungsstrategie
+Musici/kidsmultipaint - Marketing- und Monetarisierungsstrategie
 =====
 
 # Zielgruppe
@@ -90,7 +90,7 @@ siehe auch PLAY_STORE.md
 ## Phase 2: Community-Aufbau (Monat 4-6)
 
 1. **Social Media Präsenz aufbauen**
-   - Instagram-Account erstellen (@multipaint_app oder ähnlich)
+   - Instagram-Account erstellen (@kidsmultipaint_app oder ähnlich)
    - 3-5 Eltern-Facebook-Gruppen identifizieren und beitreten
    - TikTok-Account für kurze App-Demos
 

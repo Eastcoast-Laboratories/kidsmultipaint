@@ -40,9 +40,9 @@
 - User requests to remove the word "demo" from the app and rename the feature to "paint" everywhere.
 - Renaming from "demo" to "paint" is complete: HTML title and comments updated, and demo-related files renamed to use "paint" instead.
 - All references from "demo" to "paint" have been updated. The application is now fully using the "paint" naming.
-- New issue: On Android/mobile, the app only shows a black screen and throws a java.lang.ClassNotFoundException for com.multipaint.app.MainActivity. This must be diagnosed and fixed before proceeding.
-- Diagnosis: MainActivity.java is located at com/lalumo/app/MainActivity.java, but Capacitor/appId expects com.multipaint.app.MainActivity. This package mismatch is likely causing the ClassNotFoundException.
-- Fix applied: MainActivity.java package declaration updated and file moved to com/multipaint/app/. build.gradle and AndroidManifest.xml checked for consistency. Capacitor sync completed.
+- New issue: On Android/mobile, the app only shows a black screen and throws a java.lang.ClassNotFoundException for com.kidsmultipaint.app.MainActivity. This must be diagnosed and fixed before proceeding.
+- Diagnosis: MainActivity.java is located at com/kidsmultipaint/app/MainActivity.java, but Capacitor/appId expects com.kidsmultipaint.app.MainActivity. This package mismatch is likely causing the ClassNotFoundException.
+- Fix applied: MainActivity.java package declaration updated and file moved to com/kidsmultipaint/app/. build.gradle and AndroidManifest.xml checked for consistency. Capacitor sync completed.
 - Added align_package_names() function to mobile-build.sh to automatically check and fix package name consistency between capacitor.config.json and Android MainActivity.java before each build, preventing future package mismatch errors.
 - Added requirement: Integrate the same child lock (Kindersicherung) as implemented in Musici, referencing Musici's index.html:L82-L102 and app.js:L777-L827 for button, progress indicator, and unlock logic.
 - User clarified: The lock should only disable/protect the settings button, not overlay or block the painting canvas. Painting must always remain accessible, only settings access should require unlock.
@@ -50,6 +50,7 @@
 - User reports regression: cannot paint on canvas and settings button does not open after recent changes.
 - JavaScript error: "can't access lexical declaration 'settingsToggle' before initialization" in toggleMenuLock must be fixed.
 - Regression fixed: toolbar variable declarations moved before usage; painting and settings functionality restored.
+- Fixed settings button CSS: now uses #settings-toggle selector so it appears at the top right at 80px width and does not stretch to 100% width.
 
 ## Task List
 - [x] Remove all images from app/images and src/images.
@@ -77,8 +78,8 @@
   - [x] Rename demo-related files (e.g., fabric_demo.html → fabric_paint.html)
   - [x] Update all remaining references/code/strings to use "paint"
 - [x] Diagnose and fix Android/mobile black screen and MainActivity ClassNotFoundException
-  - [x] Align Android MainActivity package name with appId in capacitor.config.json (should be com.multipaint.app)
-  - [x] Move MainActivity.java to correct directory structure (com/multipaint/app/)
+  - [x] Align Android MainActivity package name with appId in capacitor.config.json (should be com.kidsmultipaint.app)
+  - [x] Move MainActivity.java to correct directory structure (com/kidsmultipaint/app/)
   - [x] Check AndroidManifest.xml and build.gradle for correct package/applicationId
   - [x] Run npx cap sync android to update project
   - [x] Verify Android build after package fix

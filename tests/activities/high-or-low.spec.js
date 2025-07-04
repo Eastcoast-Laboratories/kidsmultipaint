@@ -2,10 +2,10 @@ const { test, expect } = require('@playwright/test');
 const { setupTest, navigateToActivity, returnToMain, checkElementVisibility } = require('../helpers/test-utils');
 
 /**
- * Test suite for High or Low (1_1) activity in multipaint app
+ * Test suite for High or Low (1_1) activity in kidsmultipaint app
  * Tests navigation to the activity and basic functionality
  */
-test.describe('multipaint High or Low Activity Tests', () => {
+test.describe('kidsmultipaint High or Low Activity Tests', () => {
   // Set global timeout
   test.setTimeout(10000);
 

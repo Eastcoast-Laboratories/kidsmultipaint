@@ -11,7 +11,7 @@
  */
 function secureIpHash($ip) {
     // Verwende eine zufaellige, feste Zeichenkette als Salt, um das Reverse-Engineering zu erschweren
-    $salt = 'multipaint-app-2025-secure-salt';
+    $salt = 'kidsmultipaint-app-2025-secure-salt';
     
     // Kombiniere IP mit Salt und hashing-Algorithmus
     return hash('sha256', $ip . $salt);

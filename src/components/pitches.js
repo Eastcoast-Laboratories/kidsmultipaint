@@ -283,7 +283,7 @@ export function pitches() {
         
         // Load mascot message settings from localStorage
         try {
-          const savedMascotSettings = localStorage.getItem('multipaint_mascot_settings');
+          const savedMascotSettings = localStorage.getItem('kidsmultipaint_mascot_settings');
           if (savedMascotSettings) {
             const loadedSettings = JSON.parse(savedMascotSettings);
             // Merge loaded settings with defaults to ensure new flags are set
@@ -296,7 +296,7 @@ export function pitches() {
             console.log('Loaded mascot settings and reset seen messages:', this.mascotSettings);
           }
           // Always save back to localStorage to persist any new default flags
-          localStorage.setItem('multipaint_mascot_settings', JSON.stringify(this.mascotSettings));
+          localStorage.setItem('kidsmultipaint_mascot_settings', JSON.stringify(this.mascotSettings));
         } catch (error) {
           console.error('Error loading mascot settings:', error);
           // Keep default settings
@@ -304,7 +304,7 @@ export function pitches() {
         
         // Try to load saved progress from localStorage
         try {
-          const savedProgress = localStorage.getItem('multipaint_progress');
+          const savedProgress = localStorage.getItem('kidsmultipaint_progress');
           if (savedProgress) {
             this.progress = JSON.parse(savedProgress);
             
@@ -332,7 +332,7 @@ export function pitches() {
           }
           
           // Load progressive difficulty data
-          const savedDifficulty = localStorage.getItem('multipaint_difficulty');
+          const savedDifficulty = localStorage.getItem('kidsmultipaint_difficulty');
           if (savedDifficulty) {
             const difficultyData = JSON.parse(savedDifficulty);
             this.correctAnswersCount = difficultyData.correctAnswersCount || 0;
@@ -358,7 +358,7 @@ export function pitches() {
       }
       
       // Add a global event listener for the home button
-      document.addEventListener('multipaint:go-home', () => {
+      document.addEventListener('kidsmultipaint:go-home', () => {
         console.log('Home button pressed via custom event');
         this.setMode('main');
       });
@@ -412,7 +412,7 @@ export function pitches() {
       // Start the long press timer
       this.longPressTimer = setTimeout(() => {
         // Get the appropriate help text based on pattern and language
-        const languageSetting = localStorage.getItem('multipaint_language') || 'english';
+        const languageSetting = localStorage.getItem('kidsmultipaint_language') || 'english';
         const language = languageSetting === 'german' ? 'de' : 'en';
         
         // Define fallback text if no pattern text is found
@@ -483,7 +483,7 @@ export function pitches() {
       
       this.longPressTimer = setTimeout(() => {
         // Get the appropriate help text based on pattern and language
-        const languageSetting = localStorage.getItem('multipaint_language') || 'english';
+        const languageSetting = localStorage.getItem('kidsmultipaint_language') || 'english';
         console.log('Current language setting:', languageSetting);
         
         // Convert the language setting to language codes for the help texts
@@ -633,7 +633,7 @@ export function pitches() {
       console.log('Total progress updated:', totalProgress, 'Progress values:', progressValues);
       
       // Store progress in localStorage for persistence
-      localStorage.setItem('multipaint_progress', JSON.stringify(this.progress));
+      localStorage.setItem('kidsmultipaint_progress', JSON.stringify(this.progress));
     },
     
     /** ****************************************************
@@ -737,7 +737,7 @@ export function pitches() {
         this.progress['1_1_pitches_high_or_low'] = this.highOrLowProgress;
         
         // Save the progress object to localStorage
-        localStorage.setItem('multipaint_progress', JSON.stringify(this.progress));
+        localStorage.setItem('kidsmultipaint_progress', JSON.stringify(this.progress));
         console.log('Progress saved successfully:', this.progress);
       } catch (error) {
         console.error('Error saving progress:', error);
@@ -1537,7 +1537,7 @@ export function pitches() {
         this.updateMatchingBackground();
         
         // Save progress to localStorage
-        localStorage.setItem('multipaint_progress', JSON.stringify(this.progress));
+        localStorage.setItem('kidsmultipaint_progress', JSON.stringify(this.progress));
       } else {
         // Find the clicked element for potential error animation
         const clickedElement = document.querySelector(`.pitch-card .pitch-icon.${selected}`);
@@ -1575,7 +1575,7 @@ export function pitches() {
           correctAnswersCount: this.correctAnswersCount,
           unlockedPatterns: this.unlockedPatterns
         };
-        localStorage.setItem('multipaint_difficulty', JSON.stringify(difficultyData));
+        localStorage.setItem('kidsmultipaint_difficulty', JSON.stringify(difficultyData));
       } catch (e) {
         console.log('Could not save difficulty progress');
       }
@@ -1660,7 +1660,7 @@ export function pitches() {
      */
     showContextMessage() {
       let message = '';
-      const language = localStorage.getItem('multipaint_language') || 'english';
+      const language = localStorage.getItem('kidsmultipaint_language') || 'english';
       
       // Provide context-specific instructions based on current mode
       if (this.mode === '1_1_pitches_high_or_low') {
@@ -1861,7 +1861,7 @@ export function pitches() {
       
       // Save the settings to localStorage
       try {
-        localStorage.setItem('multipaint_mascot_settings', JSON.stringify(this.mascotSettings));
+        localStorage.setItem('kidsmultipaint_mascot_settings', JSON.stringify(this.mascotSettings));
         console.log('Saved mascot settings, help messages disabled');
       } catch (error) {
         console.error('Error saving mascot settings:', error);
@@ -1888,7 +1888,7 @@ export function pitches() {
       
       // Save settings to localStorage
       try {
-        localStorage.setItem('multipaint_mascot_settings', JSON.stringify(this.mascotSettings));
+        localStorage.setItem('kidsmultipaint_mascot_settings', JSON.stringify(this.mascotSettings));
         console.log(`Help messages ${this.$store.mascotSettings.showHelpMessages ? 'enabled' : 'disabled'}`);
       } catch (error) {
         console.error('Error saving mascot settings:', error);
@@ -1920,7 +1920,7 @@ export function pitches() {
         this.$store.mascotSettings.seenActivityMessages[activityId] = true;
         // Save settings
         try {
-          localStorage.setItem('multipaint_mascot_settings', JSON.stringify(this.mascotSettings));
+          localStorage.setItem('kidsmultipaint_mascot_settings', JSON.stringify(this.mascotSettings));
         } catch (error) {
           console.error('Error saving mascot settings:', error);
         }
@@ -1999,7 +1999,7 @@ export function pitches() {
      */
     showActivityIntroMessage(activityMode) {
       // Get the current language
-      const language = localStorage.getItem('multipaint_language') === 'german' ? 'de' : 'en';
+      const language = localStorage.getItem('kidsmultipaint_language') === 'german' ? 'de' : 'en';
       
       // Define all intro messages for different activities
       const introMessages = {
@@ -2513,7 +2513,7 @@ export function pitches() {
       
       // Load saved level and success counter values from localStorage
       try {
-        const savedLevel = localStorage.getItem('multipaint_draw_melody_level');
+        const savedLevel = localStorage.getItem('kidsmultipaint_draw_melody_level');
         if (savedLevel !== null) {
           this.drawMelodyLevel = parseInt(savedLevel, 10);
           console.log('MELODY_SETUP: Loaded saved level:', this.drawMelodyLevel);
@@ -2523,7 +2523,7 @@ export function pitches() {
           console.log('MELODY_SETUP: Initialized default level to 0');
         }
         
-        const savedCounter = localStorage.getItem('multipaint_draw_melody_success_counter');
+        const savedCounter = localStorage.getItem('kidsmultipaint_draw_melody_success_counter');
         if (savedCounter !== null) {
           this.levelSuccessCounter = parseInt(savedCounter, 10);
           console.log('MELODY_SETUP: Loaded saved success counter:', this.levelSuccessCounter);
@@ -3223,7 +3223,7 @@ export function pitches() {
       if (this.levelSuccessCounter === undefined) {
         // Try to load from localStorage first
         try {
-          const savedCounter = localStorage.getItem('multipaint_draw_melody_success_counter');
+          const savedCounter = localStorage.getItem('kidsmultipaint_draw_melody_success_counter');
           if (savedCounter !== null) {
             this.levelSuccessCounter = parseInt(savedCounter, 10);
             console.log('MELODY_PROGRESSION: Loaded success counter from localStorage:', this.levelSuccessCounter);
@@ -3251,7 +3251,7 @@ export function pitches() {
       
       // Save to localStorage
       try {
-        localStorage.setItem('multipaint_progress', JSON.stringify(this.progress));
+        localStorage.setItem('kidsmultipaint_progress', JSON.stringify(this.progress));
       } catch (e) {
         console.warn('Could not update central progress in localStorage', e);
       }
@@ -3266,7 +3266,7 @@ export function pitches() {
         
         // Save success counter to localStorage
         try {
-          localStorage.setItem('multipaint_draw_melody_success_counter', this.levelSuccessCounter);
+          localStorage.setItem('kidsmultipaint_draw_melody_success_counter', this.levelSuccessCounter);
         } catch (e) {
           console.warn('Could not save success counter to localStorage', e);
         }
@@ -3279,8 +3279,8 @@ export function pitches() {
           
           // Save level to localStorage for persistence
           try {
-            localStorage.setItem('multipaint_draw_melody_level', this.drawMelodyLevel);
-            localStorage.setItem('multipaint_draw_melody_success_counter', 0); // Reset counter in storage
+            localStorage.setItem('kidsmultipaint_draw_melody_level', this.drawMelodyLevel);
+            localStorage.setItem('kidsmultipaint_draw_melody_success_counter', 0); // Reset counter in storage
           } catch (e) {
             console.warn('Could not save draw melody level to localStorage', e);
           }
@@ -3418,7 +3418,7 @@ export function pitches() {
       
       // Initialize memory success count from localStorage or default to 0
       if (this.memorySuccessCount === undefined) {
-        const savedLevel = localStorage.getItem('multipaint_memory_level');
+        const savedLevel = localStorage.getItem('kidsmultipaint_memory_level');
         this.memorySuccessCount = savedLevel ? parseInt(savedLevel, 10) : 0;
       }
       
@@ -3648,8 +3648,8 @@ export function pitches() {
         
         console.log('Updated memory progress:', this.progress['1_5_pitches_memory-game']);
         
-        localStorage.setItem('multipaint_memory_level', this.memorySuccessCount.toString());
-        localStorage.setItem('multipaint_progress', JSON.stringify(this.progress));
+        localStorage.setItem('kidsmultipaint_memory_level', this.memorySuccessCount.toString());
+        localStorage.setItem('kidsmultipaint_progress', JSON.stringify(this.progress));
       } else {
         // Show shake animation on the last pressed key if available
         if (lastPressedKey) {
@@ -3811,7 +3811,7 @@ export function pitches() {
       this.selectRandomAnimalImages();
       
       // Get the current language
-      const language = localStorage.getItem('multipaint_language') === 'german' ? 'de' : 'en';
+      const language = localStorage.getItem('kidsmultipaint_language') === 'german' ? 'de' : 'en';
       
       // Show an introductory message
       const introMessage = language === 'de' 
@@ -3824,7 +3824,7 @@ export function pitches() {
       }
       
       // Lade den Level aus dem localStorage, falls vorhanden
-      const savedLevel = parseInt(localStorage.getItem('multipaint_soundJudgmentLevel'));
+      const savedLevel = parseInt(localStorage.getItem('kidsmultipaint_soundJudgmentLevel'));
       if (!isNaN(savedLevel) && savedLevel >= 1 && savedLevel <= 7) {
         this.soundJudgmentLevel = savedLevel;
         console.log(`SOUND JUDGMENT: Loaded level ${this.soundJudgmentLevel} from preferences`);
@@ -3964,7 +3964,7 @@ export function pitches() {
       this.currentMelodyId = randomMelodyKey;
       
       // Get the current language
-      const language = localStorage.getItem('multipaint_language') === 'german' ? 'de' : 'en';
+      const language = localStorage.getItem('kidsmultipaint_language') === 'german' ? 'de' : 'en';
       
       // Set the melody name in the appropriate language
       this.currentMelodyName = selectedMelody[language] || selectedMelody.en;
@@ -4474,7 +4474,7 @@ export function pitches() {
       this.stopCurrentSound();
       
       // Get the current language
-      const language = localStorage.getItem('multipaint_language') === 'german' ? 'de' : 'en';
+      const language = localStorage.getItem('kidsmultipaint_language') === 'german' ? 'de' : 'en';
       
       // Check if the user's answer is correct
       // User says "Sounds Good" (true) and the melody has no wrong note (!this.melodyHasWrongNote) OR
@@ -4513,7 +4513,7 @@ export function pitches() {
         this.progress['1_4_pitches_does-it-sound-right']++;
         
         // Save progress to localStorage
-        localStorage.setItem('multipaint_progress', JSON.stringify(this.progress));
+        localStorage.setItem('kidsmultipaint_progress', JSON.stringify(this.progress));
         
         console.log('Updated sound judgment progress:', this.progress['1_4_pitches_does-it-sound-right']);
         
@@ -4527,7 +4527,7 @@ export function pitches() {
           this.soundJudgmentCorrectStreak = 0; // Reset streak for next level
           
           // Save the updated level to preferences
-          localStorage.setItem('multipaint_soundJudgmentLevel', this.soundJudgmentLevel);
+          localStorage.setItem('kidsmultipaint_soundJudgmentLevel', this.soundJudgmentLevel);
           
           console.log(`SOUND JUDGMENT: Advanced to level ${this.soundJudgmentLevel}!`);
           
@@ -4713,14 +4713,14 @@ export function pitches() {
       console.log('SOUND JUDGMENT: Reset level to 1 and streak to 0');
       
       // Remove all progress from localStorage
-      localStorage.removeItem('multipaint_progress');
-      localStorage.removeItem('multipaint_memory_level');
-      localStorage.removeItem('multipaint_difficulty'); // Wichtig: unlockedPatterns & correctAnswersCount
-      localStorage.removeItem('multipaint_soundJudgmentLevel');
-      localStorage.removeItem('multipaint_soundJudgmentStreak');
-      localStorage.removeItem('multipaint_draw_melody_level');
-      localStorage.removeItem('multipaint_draw_melody_success_counter')
-      localStorage.removeItem('multipaint_chords_progress')
+      localStorage.removeItem('kidsmultipaint_progress');
+      localStorage.removeItem('kidsmultipaint_memory_level');
+      localStorage.removeItem('kidsmultipaint_difficulty'); // Wichtig: unlockedPatterns & correctAnswersCount
+      localStorage.removeItem('kidsmultipaint_soundJudgmentLevel');
+      localStorage.removeItem('kidsmultipaint_soundJudgmentStreak');
+      localStorage.removeItem('kidsmultipaint_draw_melody_level');
+      localStorage.removeItem('kidsmultipaint_draw_melody_success_counter')
+      localStorage.removeItem('kidsmultipaint_chords_progress')
       
     }
   };

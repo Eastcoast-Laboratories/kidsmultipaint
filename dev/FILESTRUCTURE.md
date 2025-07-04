@@ -1,4 +1,4 @@
-# multipaint App Dateistruktur
+# kidsmultipaint App Dateistruktur
 
 ## Aktuelle Struktur
 

@@ -21,7 +21,7 @@ npm run build:fast; npm run watch &
 sleep 2
 
 echo "
-multipaint-App ist verfügbar unter: http://localhost:9092"
+kidsmultipaint-App ist verfügbar unter: http://localhost:9092"
 echo "Homepage ist verfügbar unter: http://localhost:9092/homepage"
 echo "If the browser doesn't open automatically, please visit the URLs manually."
 

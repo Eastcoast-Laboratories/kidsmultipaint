@@ -43,7 +43,7 @@ Alpine.store('mascotSettings', {
   // Load settings from localStorage
   init() {
     try {
-      const savedSettings = localStorage.getItem('multipaint_mascot_settings');
+      const savedSettings = localStorage.getItem('kidsmultipaint_mascot_settings');
       if (savedSettings) {
         const loadedSettings = JSON.parse(savedSettings);
         // Merge with defaults to ensure new flags are set
@@ -66,7 +66,7 @@ Alpine.store('mascotSettings', {
   // Save settings to localStorage
   save() {
     try {
-      localStorage.setItem('multipaint_mascot_settings', JSON.stringify({
+      localStorage.setItem('kidsmultipaint_mascot_settings', JSON.stringify({
         showHelpMessages: this.showHelpMessages,
         seenActivityMessages: this.seenActivityMessages,
         disableTTS: this.disableTTS
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     type: capacitor.getPlatform()
   });
   
-  console.log('multipaint app running on platform:', capacitor.getPlatform());
+  console.log('kidsmultipaint app running on platform:', capacitor.getPlatform());
 });
 
 // Start Alpine

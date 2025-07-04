@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   // 2. Add event listener for successful melodie completion to auto-progress
-  document.addEventListener('multipaint:success', (e) => {
+  document.addEventListener('kidsmultipaint:success', (e) => {
     // Wait 2 seconds after success then move to next melody
     setTimeout(() => {
       const mode = e.detail?.mode;

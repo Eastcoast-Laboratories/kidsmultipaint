@@ -1,5 +1,5 @@
 #!/bin/bash
-# Mobile build script for multipaint app using Capacitor
+# Mobile build script for kidsmultipaint app using Capacitor
 # This script builds the web app and syncs it with native platforms
 
 # Default configuration
@@ -7,7 +7,7 @@ UPDATE_VERSION=false
 
 # Show help information
 show_help() {
-  echo "\nmultipaint Mobile Build Script\n"
+  echo "\nkidsmultipaint Mobile Build Script\n"
   echo "Usage: bash mobile-build.sh [options] [platform]\n"
   echo "Options:"
   echo "  -h, --help                Show this help message"

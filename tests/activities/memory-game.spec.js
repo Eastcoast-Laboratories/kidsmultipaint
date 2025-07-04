@@ -2,10 +2,10 @@ const { test, expect } = require('@playwright/test');
 const { setupTest, navigateToActivity, returnToMain, checkElementVisibility } = require('../helpers/test-utils');
 
 /**
- * Test suite for Memory Game (1_5) activity in multipaint app
+ * Test suite for Memory Game (1_5) activity in kidsmultipaint app
  * Tests navigation to the activity and basic functionality
  */
-test.describe('multipaint Memory Game Activity Tests', () => {
+test.describe('kidsmultipaint Memory Game Activity Tests', () => {
   // Set global timeout
   test.setTimeout(10000);
 

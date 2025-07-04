@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 /**
- * Referral Code API Endpoint für multipaint
+ * Referral Code API Endpoint für kidsmultipaint
  * 
  * Dieses Skript verarbeitet verschiedene Referral-Code Anfragen:
  * - POST: Erstellt oder holt Referral-Code für einen Benutzernamen
@@ -46,7 +46,7 @@ $origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
 debugLog('Request Origin: ' . $origin);
 
 // Erkenne Server-Umgebung
-$is_production = preg_match('/multipaint\.eu|multipaint\.z11\.de/', $_SERVER['HTTP_HOST'] ?? '');
+$is_production = preg_match('/kidsmultipaint\.eu|kidsmultipaint\.z11\.de/', $_SERVER['HTTP_HOST'] ?? '');
 $is_local_dev = preg_match('/localhost|127\.0\.0\.1/', $_SERVER['HTTP_HOST'] ?? '');
 $is_mobile_app = preg_match('/capacitor:\/\/localhost|https:\/\/localhost/', $origin);
 

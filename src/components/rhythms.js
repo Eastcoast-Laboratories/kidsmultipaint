@@ -157,7 +157,7 @@ export function rhythms() {
     playBeat(type = 'high') {
       try {
         // Dispatch custom sound event for the app component to handle
-        window.dispatchEvent(new CustomEvent('multipaint:play-sound', {
+        window.dispatchEvent(new CustomEvent('kidsmultipaint:play-sound', {
           detail: { sound: `rhythm_${type}` }
         }));
       } catch (error) {

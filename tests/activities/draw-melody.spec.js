@@ -2,10 +2,10 @@ const { test, expect } = require('@playwright/test');
 const { setupTest, navigateToActivity, returnToMain, checkElementVisibility } = require('../helpers/test-utils');
 
 /**
- * Test suite for Draw a Melody (1_3) activity in multipaint app
+ * Test suite for Draw a Melody (1_3) activity in kidsmultipaint app
  * Tests navigation to the activity and basic functionality
  */
-test.describe('multipaint Draw a Melody Activity Tests', () => {
+test.describe('kidsmultipaint Draw a Melody Activity Tests', () => {
   // Set global timeout
   test.setTimeout(10000);
 

@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 /**
- * Vollständiges Migrationsskript für multipaint DB
+ * Vollständiges Migrationsskript für kidsmultipaint DB
  * - Fügt die created_at-Spalte zur referrals-Tabelle hinzu
  * - Fügt die referred_by-Spalte zur users-Tabelle hinzu
  */

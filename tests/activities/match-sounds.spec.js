@@ -2,10 +2,10 @@ const { test, expect } = require('@playwright/test');
 const { setupTest, navigateToActivity, returnToMain, checkElementVisibility } = require('../helpers/test-utils');
 
 /**
- * Test suite for Match Sounds (1_2) activity in multipaint app
+ * Test suite for Match Sounds (1_2) activity in kidsmultipaint app
  * Tests navigation to the activity and basic functionality
  */
-test.describe('multipaint Match Sounds Activity Tests', () => {
+test.describe('kidsmultipaint Match Sounds Activity Tests', () => {
   // Set global timeout
   test.setTimeout(10000);
 

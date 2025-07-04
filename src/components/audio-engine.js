@@ -1,7 +1,7 @@
 /**
  * Audio-Engine Modul
  * 
- * Zentrale Komponente für alle Audiooperationen in der multipaint-App.
+ * Zentrale Komponente für alle Audiooperationen in der kidsmultipaint-App.
  * Verwendet Tone.js für qualitativ hochwertige Audiowiedergabe.
  */
 import * as Tone from 'tone';
@@ -438,7 +438,7 @@ export class AudioEngine {
    */
   _setupGlobalEventListeners() {
     // Legacy-Event-Listener für Kompatibilität mit bestehendem Code
-    window.addEventListener('multipaint:playnote', (event) => {
+    window.addEventListener('kidsmultipaint:playnote', (event) => {
       if (!event.detail || !event.detail.note) return;
       
       // Präfixe vom Notennamen entfernen (z.B. 'pitch_C4' -> 'C4')

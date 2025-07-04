@@ -1,6 +1,6 @@
 # Concept for a Child-Friendly Music Understanding App
 
-## Working Title: "multipaint"
+## Working Title: "kidsmultipaint"
 
 ## Goal of the App
 

@@ -1,5 +1,5 @@
 /**
- * Central configuration for multipaint App
+ * Central configuration for kidsmultipaint App
  * Contains environment-specific settings from central YAML config
  */
 
@@ -11,15 +11,15 @@ const configData = {
     APP_BASE_PATH: '/'
   },
   production: {
-    API_BASE_URL: 'https://multipaint.eu/api',
-    APP_BASE_URL: 'https://multipaint.eu/app',
+    API_BASE_URL: 'https://kidsmultipaint.eu/api',
+    APP_BASE_URL: 'https://kidsmultipaint.eu/app',
     APP_BASE_PATH: '/app/'
   }
 };
 
 // Detect environment (local development vs production or mobile)
-const isProduction = window.location.hostname === 'multipaint.eu' || 
-                     window.location.hostname === 'multipaint.z11.de';
+const isProduction = window.location.hostname === 'kidsmultipaint.eu' || 
+                     window.location.hostname === 'kidsmultipaint.z11.de';
 
 // Also consider as production when running in Capacitor/mobile environment
 const isMobile = window.location.protocol === 'capacitor:' || 
@@ -30,8 +30,8 @@ const useProductionConfig = isProduction || isMobile;
 
 // Check for configuration override from HTML
 let configOverride = {};
-if (isProduction && typeof window !== 'undefined' && window.multipaint_CONFIG_OVERRIDE) {
-  configOverride = window.multipaint_CONFIG_OVERRIDE;
+if (isProduction && typeof window !== 'undefined' && window.kidsmultipaint_CONFIG_OVERRIDE) {
+  configOverride = window.kidsmultipaint_CONFIG_OVERRIDE;
   console.log('[CONFIG] Using configuration override from HTML');
 }
 

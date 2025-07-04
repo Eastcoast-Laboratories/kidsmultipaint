@@ -1,7 +1,7 @@
 Homepage
 ========
 
-Plan for a homepage https://multipaint.eu
+Plan for a homepage https://kidsmultipaint.eu
 
 ## Content Requirements
 
@@ -17,8 +17,8 @@ The page should contain:
 ###  Keep Current Structure (Recommended)
 - Keep main app as `index.html` (current setup)
 - Create separate `homepage/index.html` for public landing page
-- Deploy homepage/ as the main page on multipaint.eu
-- Deploy the app index.html to app/ on multipaint.eu
+- Deploy homepage/ as the main page on kidsmultipaint.eu
+- Deploy the app index.html to app/ on kidsmultipaint.eu
 
 **Advantages:**
 - Clean separation between marketing site and application
@@ -30,7 +30,7 @@ The page should contain:
 
 ### 1. Hero Section
 ```
-🎵 multipaint - Learn Music Naturally
+🎵 kidsmultipaint - Learn Music Naturally
 [Subtitle: Interactive music learning through sound and play]
 [Download buttons: App Store | Google Play]
 ```

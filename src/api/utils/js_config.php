@@ -23,8 +23,8 @@ function showDiagnostics() {
         // Umgebungsinformationen
         echo "<h2>Environment Detection:</h2>";
         $host = $_SERVER['HTTP_HOST'] ?? 'unknown';
-        $isProd = strpos($host, 'multipaint.eu') !== false || 
-                strpos($host, 'multipaint.z11.de') !== false;
+        $isProd = strpos($host, 'kidsmultipaint.eu') !== false || 
+                strpos($host, 'kidsmultipaint.z11.de') !== false;
         echo "<pre class='env'>";
         echo "Host: $host\n";
         echo "Environment: " . ($isProd ? "PRODUCTION" : "DEVELOPMENT") . "\n";
@@ -108,8 +108,8 @@ function getJsConfig($configFile) {
     
     // Detect environment
     $host = $_SERVER['HTTP_HOST'] ?? '';
-    $isProd = strpos($host, 'multipaint.eu') !== false || 
-              strpos($host, 'multipaint.z11.de') !== false;
+    $isProd = strpos($host, 'kidsmultipaint.eu') !== false || 
+              strpos($host, 'kidsmultipaint.z11.de') !== false;
     
     // Return appropriate config
     return $isProd ? $config['production'] : $config['development'];

@@ -28,7 +28,7 @@ test.setTimeout(10000);
  * cd /var/www/Musici && \
  * npx playwright test tests/match-sounds.spec.js --timeout=10000 --headed
  */
-test.describe('multipaint Match Sounds Activity', () => {
+test.describe('kidsmultipaint Match Sounds Activity', () => {
   // Globales Timeout von 10 Sekunden setzen, damit Tests nicht hängen bleiben
   test.setTimeout(10000);
 

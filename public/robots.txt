@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://multipaint.z11.de/sitemap.xml
+Sitemap: https://kidsmultipaint.z11.de/sitemap.xml

@@ -28,8 +28,8 @@ export function reset_1_2_MatchSounds_Progress(component) {
   component.userSequence = [];
   
   // Clear localStorage
-  localStorage.removeItem('multipaint_progress_match');
-  localStorage.removeItem('multipaint_difficulty');
+  localStorage.removeItem('kidsmultipaint_progress_match');
+  localStorage.removeItem('kidsmultipaint_difficulty');
   
   // Update progress object
   component.progress['1_2_pitches_match-sounds'] = 0;

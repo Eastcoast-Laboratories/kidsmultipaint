@@ -136,7 +136,7 @@ export function checkColorAnswer(component, selectedColor) {
   // Save progress to localStorage
   if (component.progress && component.mode) {
     component.progress[component.mode] = component.totalQuestions;
-    localStorage.setItem('multipaint_chords_progress', JSON.stringify(component.progress));
+    localStorage.setItem('kidsmultipaint_chords_progress', JSON.stringify(component.progress));
     debugLog('CHORDS', `Saved progress for ${component.mode}: ${component.totalQuestions}`);
   }
   

@@ -21,7 +21,7 @@ export function testChordCharactersModuleImport() {
 export function updateCharacterBackground(component) {
   try {
     // Get progress from localStorage or component state
-    const progressData = localStorage.getItem('multipaint_chords_progress');
+    const progressData = localStorage.getItem('kidsmultipaint_chords_progress');
     const progress = progressData ? 
       JSON.parse(progressData)['2_5_chords_characters'] || 0 : 
       component?.progress?.['2_5_chords_characters'] || 0;
@@ -78,7 +78,7 @@ export function reset_2_5_ChordTypes_Progress(component) {
   console.log('Resetting Chord Types progress...');
   
   // Clear localStorage data
-  localStorage.removeItem('multipaint_chords_progress');
+  localStorage.removeItem('kidsmultipaint_chords_progress');
   
   // Reset any in-memory state if applicable
   if (component && component.chords) {

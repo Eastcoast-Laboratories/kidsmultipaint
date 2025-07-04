@@ -62,7 +62,7 @@ export function freeplay() {
     playNote(note) {
       try {
         // Dispatch sound event with instrument and note information
-        window.dispatchEvent(new CustomEvent('multipaint:play-sound', {
+        window.dispatchEvent(new CustomEvent('kidsmultipaint:play-sound', {
           detail: { sound: `${this.currentInstrument}_${note}` }
         }));
         

@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "com.multipaint.app"
+    namespace "com.kidsmultipaint.app"
     compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.multipaint.app"
+        applicationId "com.kidsmultipaint.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         // HINWEIS: Diese Versionseinstellungen werden automatisch durch mobile-build.sh verwaltet:

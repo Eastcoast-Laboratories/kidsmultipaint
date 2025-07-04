@@ -8,11 +8,11 @@ Musik lernen mit Tierbildern, Melodien und Rätseln - spielerisch und bunt!
 
 ## Vollständige Beschreibung
 
-multipaint - Entdecke Musik mit Herz und Ohr
+kidsmultipaint - Entdecke Musik mit Herz und Ohr
 
-Mit multipaint tauchen kleine Kinder in die bunte Welt der Musik ein! Auf spielerische Weise und mit liebevoll gestalteten Tierfiguren lernen sie Tonhöhe, Melodie, Klangfarbe und Rhythmus kennen - alles ohne Vorkenntnisse - Musikalische Konzepte intuitiv erfassen.
+Mit kidsmultipaint tauchen kleine Kinder in die bunte Welt der Musik ein! Auf spielerische Weise und mit liebevoll gestalteten Tierfiguren lernen sie Tonhöhe, Melodie, Klangfarbe und Rhythmus kennen - alles ohne Vorkenntnisse - Musikalische Konzepte intuitiv erfassen.
 
-Was kann Ihr Kind in multipaint erwarten?
+Was kann Ihr Kind in kidsmultipaint erwarten?
 
 - Kinder erkennen Tonhöhen, indem sie zuhören und auf das richtige Tier drücken.
 - Kinderfreundliche Aktivitäten
@@ -42,11 +42,11 @@ Learn music with animal friends, melodies, and puzzles - playful and colorful!
 
 ## Vollständige Beschreibung
 
-multipaint - Discover Music with Heart and Ear
+kidsmultipaint - Discover Music with Heart and Ear
 
-With multipaint, young children dive into the colorful world of music! In a playful way and with lovingly designed animal characters, they explore pitch, melody, timbre, and rhythm - no prior knowledge needed. Musical concepts are experienced intuitively.
+With kidsmultipaint, young children dive into the colorful world of music! In a playful way and with lovingly designed animal characters, they explore pitch, melody, timbre, and rhythm - no prior knowledge needed. Musical concepts are experienced intuitively.
 
-What can your child expect in multipaint?
+What can your child expect in kidsmultipaint?
 - Children recognize pitches by listening and pressing the right animal.
 - Child-friendly activities
 - Listen to familiar children's songs and decide if they sound right or “wrong”

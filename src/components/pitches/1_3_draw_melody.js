@@ -31,8 +31,8 @@ export function reset_1_3_DrawMelody_Progress(component) {
   component.referenceSequence = null;
   
   // Clear localStorage
-  localStorage.removeItem('multipaint_draw_melody_level');
-  localStorage.removeItem('multipaint_draw_melody_success_counter');
+  localStorage.removeItem('kidsmultipaint_draw_melody_level');
+  localStorage.removeItem('kidsmultipaint_draw_melody_success_counter');
   
   // Update progress object
   component.progress['1_3_pitches_draw-melody'] = 0;

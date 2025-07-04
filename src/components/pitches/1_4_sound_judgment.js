@@ -29,8 +29,8 @@ export function reset_1_4_SoundJudgment_Progress(component) {
   component.currentMelodyId = null;
   
   // Clear localStorage
-  localStorage.removeItem('multipaint_soundJudgmentLevel');
-  localStorage.removeItem('multipaint_soundJudgmentStreak');
+  localStorage.removeItem('kidsmultipaint_soundJudgmentLevel');
+  localStorage.removeItem('kidsmultipaint_soundJudgmentStreak');
   
   // Update progress object
   component.progress['1_4_pitches_does-it-sound-right'] = 0;

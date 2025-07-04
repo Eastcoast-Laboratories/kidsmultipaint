@@ -307,9 +307,9 @@ export function app() {
     async shareReferralCode() {
       if (!this.referralCode) return;
       
-      const shareTitle = this.$store.strings?.share_title || 'multipaint Referral Code';
-      const shareText = (this.$store.strings?.share_text || 'Try multipaint and use my referral code') + ': ' + this.referralCode;
-      const shareUrl = 'https://multipaint.app'; // Your app's URL
+      const shareTitle = this.$store.strings?.share_title || 'kidsmultipaint Referral Code';
+      const shareText = (this.$store.strings?.share_text || 'Try kidsmultipaint and use my referral code') + ': ' + this.referralCode;
+      const shareUrl = 'https://kidsmultipaint.app'; // Your app's URL
       
       // Check if the Web Share API is available
       if (navigator.share) {
@@ -337,11 +337,11 @@ export function app() {
      */
     showToast(message, duration = 3000) {
       // Create toast element if it doesn't exist
-      let toast = document.getElementById('multipaint-toast');
+      let toast = document.getElementById('kidsmultipaint-toast');
       
       if (!toast) {
         toast = document.createElement('div');
-        toast.id = 'multipaint-toast';
+        toast.id = 'kidsmultipaint-toast';
         toast.style.position = 'fixed';
         toast.style.bottom = '20px';
         toast.style.left = '50%';
@@ -525,7 +525,7 @@ export function app() {
       await this.initStrings();
       
       // Add event listener for custom sound events
-      window.addEventListener('multipaint:play-sound', (event) => {
+      window.addEventListener('kidsmultipaint:play-sound', (event) => {
         if (event.detail && event.detail.sound) {
           this.playSound(event.detail.sound);
         }
@@ -551,7 +551,7 @@ export function app() {
       document.addEventListener('click', () => this.unlockAudio(), false);
       
       // Add specialized event for audio fixes
-      document.addEventListener('multipaint:force-audio', () => {
+      document.addEventListener('kidsmultipaint:force-audio', () => {
         console.log('AUDIODEBUG: Received force-audio event');
         this.unlockAudio();
         if (this.isAndroidChrome) {
@@ -577,7 +577,7 @@ export function app() {
       
       // Event-Listener entfernen, falls er bereits existiert (verhindert mehrfache Registrierung)
       if (this.handlePlayNoteEvent) {
-        window.removeEventListener('multipaint:playnote', this.handlePlayNoteEvent);
+        window.removeEventListener('kidsmultipaint:playnote', this.handlePlayNoteEvent);
       }
       
       // Event-Handler-Funktion als Eigenschaft definieren
@@ -635,10 +635,10 @@ export function app() {
       };
       
       // Jetzt den Event-Listener mit der Handler-Funktion registrieren
-      window.addEventListener('multipaint:playnote', this.handlePlayNoteEvent);
+      window.addEventListener('kidsmultipaint:playnote', this.handlePlayNoteEvent);
       
       // Set up event listener for stopping all sounds
-      window.addEventListener('multipaint:stopallsounds', () => {
+      window.addEventListener('kidsmultipaint:stopallsounds', () => {
         // Aktiv alle Oszillatoren stoppen, wenn das Event ausgelöst wird
         console.log('Received request to stop sounds - stopping all oscillators');
         this.stopAllOscillators();
@@ -677,7 +677,7 @@ export function app() {
       debugLog("REFERRAL", "Loading user data");
       try {
         // Load username from localStorage
-        const savedUsername = localStorage.getItem('multipaint_username');
+        const savedUsername = localStorage.getItem('kidsmultipaint_username');
         if (savedUsername) {
           this.username = savedUsername;
           // Initialize the editable username field
@@ -689,7 +689,7 @@ export function app() {
         }
         
         // Load referral system data from localStorage
-        const savedReferralData = localStorage.getItem('multipaint_referral');
+        const savedReferralData = localStorage.getItem('kidsmultipaint_referral');
         if (savedReferralData) {
           debugLog("REFERRAL", "Loaded referral data from localStorage:", savedReferralData);
           try {
@@ -757,7 +757,7 @@ export function app() {
       this.menuLocked = !this.menuLocked;
       try {
         // Save to localStorage
-        localStorage.setItem('multipaint_menu_locked', this.menuLocked);
+        localStorage.setItem('kidsmultipaint_menu_locked', this.menuLocked);
         console.log('Menu lock state updated:', this.menuLocked);
         
         // Notify Android about menu lock state change if running in Android
@@ -832,7 +832,7 @@ export function app() {
      */
     async setLanguage(language) {
       this.preferredLanguage = language;
-      localStorage.setItem('multipaint_language', language);
+      localStorage.setItem('kidsmultipaint_language', language);
       console.log('Language set to:', language);
       
       // Reload strings with new language
@@ -862,7 +862,7 @@ export function app() {
       }
       
       try {
-        localStorage.setItem('multipaint_username', this.username);
+        localStorage.setItem('kidsmultipaint_username', this.username);
         // Set the editable username field to match current username
         this.editableUsername = this.username;
       } catch (e) {
@@ -881,7 +881,7 @@ export function app() {
         this.username = this.editableUsername.trim();
         
         try {
-          localStorage.setItem('multipaint_username', this.username);
+          localStorage.setItem('kidsmultipaint_username', this.username);
         } catch (e) {
           console.log('Error saving custom username', e);
         }
@@ -901,10 +901,10 @@ export function app() {
         const currentLanguage = this.preferredLanguage;
         
         // Clear game progress
-        localStorage.removeItem('multipaint_progress');
-        localStorage.removeItem('multipaint_memory_level');
-        localStorage.removeItem('multipaint_difficulty');
-        localStorage.removeItem('multipaint_chords_progress');
+        localStorage.removeItem('kidsmultipaint_progress');
+        localStorage.removeItem('kidsmultipaint_memory_level');
+        localStorage.removeItem('kidsmultipaint_difficulty');
+        localStorage.removeItem('kidsmultipaint_chords_progress');
         
         // Reset in-memory progress too
         this.progress = { match: 0, guess: 0, memory: 0 };
@@ -920,8 +920,8 @@ export function app() {
         }
         
         // Restore username and language
-        localStorage.setItem('multipaint_username', currentUsername);
-        localStorage.setItem('multipaint_language', currentLanguage);
+        localStorage.setItem('kidsmultipaint_username', currentUsername);
+        localStorage.setItem('kidsmultipaint_language', currentLanguage);
         
         // Hide confirmation dialog
         this.showResetConfirm = false;
@@ -945,7 +945,7 @@ export function app() {
         console.log('Starte Export des Fortschritts...');
         
         // Lese den aktuellen Fortschritt aus dem localStorage
-        const pitchProgressRaw = localStorage.getItem('multipaint_progress') || '{}';
+        const pitchProgressRaw = localStorage.getItem('kidsmultipaint_progress') || '{}';
         console.log('Roher Fortschritt aus localStorage:', pitchProgressRaw);
         
         let pitchProgress = JSON.parse(pitchProgressRaw);
@@ -965,17 +965,17 @@ export function app() {
           username: this.username || 'Player',
           lastSaved: new Date().toISOString(),
           pitchProgress: pitchProgress, // Direkt als Objekt speichern, keine erneute JSON-Konvertierung
-          memoryGameLevel: parseInt(localStorage.getItem('multipaint_memory_level') || '0', 10),
+          memoryGameLevel: parseInt(localStorage.getItem('kidsmultipaint_memory_level') || '0', 10),
           lastActivity: this.active,
           unlockedFeatures: unlockedFeatures, // Speichere freigeschaltete Features für bessere Diagnose
           
           // Speichere Draw-a-Melody spezifische Fortschrittsdaten
-          drawMelodyLevel: parseInt(localStorage.getItem('multipaint_draw_melody_level') || '0', 10),
-          drawMelodySuccessCounter: parseInt(localStorage.getItem('multipaint_draw_melody_success_counter') || '0', 10),
+          drawMelodyLevel: parseInt(localStorage.getItem('kidsmultipaint_draw_melody_level') || '0', 10),
+          drawMelodySuccessCounter: parseInt(localStorage.getItem('kidsmultipaint_draw_melody_success_counter') || '0', 10),
           
           // Speichere Sound-Judgment ("Does It Sound Right?") spezifische Fortschrittsdaten
-          soundJudgmentLevel: parseInt(localStorage.getItem('multipaint_soundJudgmentLevel') || '1', 10),
-          soundJudgmentStreak: parseInt(localStorage.getItem('multipaint_soundJudgmentStreak') || '0', 10)
+          soundJudgmentLevel: parseInt(localStorage.getItem('kidsmultipaint_soundJudgmentLevel') || '1', 10),
+          soundJudgmentStreak: parseInt(localStorage.getItem('kidsmultipaint_soundJudgmentStreak') || '0', 10)
         };
         
         // Konvertieren zu JSON und codieren für Export
@@ -1033,7 +1033,7 @@ export function app() {
         
         // Restore the username
         this.username = progressData.username;
-        localStorage.setItem('multipaint_username', this.username);
+        localStorage.setItem('kidsmultipaint_username', this.username);
         
         // Prepare the unlocked features message
         let unlockedFeatures = [];
@@ -1046,7 +1046,7 @@ export function app() {
             : progressData.pitchProgress;
           
           // Store as JSON string in localStorage
-          localStorage.setItem('multipaint_progress', JSON.stringify(pitchProgress));
+          localStorage.setItem('kidsmultipaint_progress', JSON.stringify(pitchProgress));
           
           // Check for unlocked wave in 1_2
           if (pitchProgress && pitchProgress['1_2_pitches_match-sounds'] && 
@@ -1073,7 +1073,7 @@ export function app() {
         
         // Restore Draw-a-Melody specific progress data
         if (typeof progressData.drawMelodyLevel !== 'undefined') {
-          localStorage.setItem('multipaint_draw_melody_level', progressData.drawMelodyLevel);
+          localStorage.setItem('kidsmultipaint_draw_melody_level', progressData.drawMelodyLevel);
           console.log('Restored Draw-a-Melody level:', progressData.drawMelodyLevel);
           
           // Add to unlocked features message
@@ -1081,13 +1081,13 @@ export function app() {
         }
         
         if (typeof progressData.drawMelodySuccessCounter !== 'undefined') {
-          localStorage.setItem('multipaint_draw_melody_success_counter', progressData.drawMelodySuccessCounter);
+          localStorage.setItem('kidsmultipaint_draw_melody_success_counter', progressData.drawMelodySuccessCounter);
           console.log('Restored Draw-a-Melody success counter:', progressData.drawMelodySuccessCounter);
         }
         
         // Restore Sound Judgment ("Does It Sound Right?") specific progress data
         if (typeof progressData.soundJudgmentLevel !== 'undefined') {
-          localStorage.setItem('multipaint_soundJudgmentLevel', progressData.soundJudgmentLevel);
+          localStorage.setItem('kidsmultipaint_soundJudgmentLevel', progressData.soundJudgmentLevel);
           console.log('SOUND JUDGMENT: Imported level:', progressData.soundJudgmentLevel);
           
           // Add to unlocked features message
@@ -1095,7 +1095,7 @@ export function app() {
         }
         
         if (typeof progressData.soundJudgmentStreak !== 'undefined') {
-          localStorage.setItem('multipaint_soundJudgmentStreak', progressData.soundJudgmentStreak);
+          localStorage.setItem('kidsmultipaint_soundJudgmentStreak', progressData.soundJudgmentStreak);
           console.log('SOUND JUDGMENT: Imported streak counter:', progressData.soundJudgmentStreak);
         }
         
@@ -1309,7 +1309,7 @@ export function app() {
      */
     showMascotMessage(message) {
       // Dispatch event to the mascot component
-      window.dispatchEvent(new CustomEvent('multipaint:mascot-message', {
+      window.dispatchEvent(new CustomEvent('kidsmultipaint:mascot-message', {
         detail: { message }
       }));
     },
@@ -1748,7 +1748,7 @@ export function app() {
           referredBy: this.referredBy || '',
           referrerUsername: this.referrerUsername || ''
         };
-        localStorage.setItem('multipaint_referral', JSON.stringify(referralData));
+        localStorage.setItem('kidsmultipaint_referral', JSON.stringify(referralData));
         console.log('Saved referral data:', referralData);
       } catch (error) {
         console.error('Error saving referral data:', error);
@@ -1938,12 +1938,12 @@ export function app() {
         return;
       }
       
-      const shareText = `${this.$store.strings?.share_text || 'Try multipaint and use my referral code'}: ${this.referralCode}`;
+      const shareText = `${this.$store.strings?.share_text || 'Try kidsmultipaint and use my referral code'}: ${this.referralCode}`;
       
       // Web Share API verwenden, wenn verfügbar
       if (navigator.share) {
         navigator.share({
-          title: this.$store.strings?.share_title || 'multipaint Referral Code',
+          title: this.$store.strings?.share_title || 'kidsmultipaint Referral Code',
           text: shareText,
           url: window.location.href
         }).then(() => {

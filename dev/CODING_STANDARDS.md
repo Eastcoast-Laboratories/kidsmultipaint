@@ -81,7 +81,7 @@ export class Activity {
 - **Melody**: Drawing/creative themes
 
 #### Progress Tracking
-- Use descriptive localStorage keys: `multipaint_[chapter]_[activity]_progress`
+- Use descriptive localStorage keys: `kidsmultipaint_[chapter]_[activity]_progress`
 - Include success counters, levels, and completion status
 - Reset functions must clear ALL related progress variables:
  . in preferences

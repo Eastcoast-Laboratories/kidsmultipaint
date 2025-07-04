@@ -1,12 +1,12 @@
 <!-- Referral Code Page -->
 <section x-show="active === 'referral-code' && (window.innerWidth >= 1024 || !menuOpen)" x-transition class="settings-page referral-code-page"
        x-data="{
-         referrerUsername: localStorage.getItem('multipaint_referral') ? JSON.parse(localStorage.getItem('multipaint_referral'))?.referrerUsername || '' : ''
+         referrerUsername: localStorage.getItem('kidsmultipaint_referral') ? JSON.parse(localStorage.getItem('kidsmultipaint_referral'))?.referrerUsername || '' : ''
        }">
   <h2 x-text="$store.strings?.unlock_chords || 'Unlock Chords Chapter'"></h2>
   <div class="settings-section">
     <div class="referral-section">
-      <p x-text="$store.strings?.referral_instruction || 'Share multipaint with your friends to unlock the Chords Chapter!'"></p>
+      <p x-text="$store.strings?.referral_instruction || 'Share kidsmultipaint with your friends to unlock the Chords Chapter!'"></p>
       <div class="referral-info">
         <p><span class="referral-highlight">3</span> <span x-text="$store.strings?.referrals_premium || 'successful referrals: Unlock Chords Chapter'"></span></p>
         <p><span class="referral-highlight">5</span> <span x-text="$store.strings?.referrals_future || 'successful referrals: Get future updates for free'"></span></p>

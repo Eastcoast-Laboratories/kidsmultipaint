@@ -2,10 +2,10 @@
 const { test, expect } = require('@playwright/test');
 
 /**
- * Test suite for hash navigation in multipaint app
+ * Test suite for hash navigation in kidsmultipaint app
  * Tests the correct switching between activities via hash changes
  */
-test.describe('multipaint Hash Navigation', () => {
+test.describe('kidsmultipaint Hash Navigation', () => {
   test.beforeEach(async ({ page }) => {
     // Browseraktionen manuell abbrechen können
     page.setDefaultTimeout(5000);

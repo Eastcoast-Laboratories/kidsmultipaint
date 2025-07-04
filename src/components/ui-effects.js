@@ -1,5 +1,5 @@
 /**
- * UI-Effekte für die multipaint App
+ * UI-Effekte für die kidsmultipaint App
  */
 
 /**

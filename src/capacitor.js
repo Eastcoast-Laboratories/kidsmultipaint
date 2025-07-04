@@ -1,5 +1,5 @@
 /**
- * Capacitor integration for multipaint app
+ * Capacitor integration for kidsmultipaint app
  * This file handles initializing Capacitor plugins and native functionality
  */
 import { Capacitor } from '@capacitor/core';

@@ -1,10 +1,10 @@
 const { test, expect } = require('@playwright/test');
 
 /**
- * Test suite for home button functionality in multipaint app
+ * Test suite for home button functionality in kidsmultipaint app
  * Tests if the home buttons correctly navigate back to the main view
  */
-test.describe('multipaint Home Button Navigation', () => {
+test.describe('kidsmultipaint Home Button Navigation', () => {
   // Globales Timeout von 10 Sekunden setzen, damit Tests nicht hängen bleiben
   test.setTimeout(10000);
   test.beforeEach(async ({ page }) => {

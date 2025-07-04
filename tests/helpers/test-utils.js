@@ -1,5 +1,5 @@
 /**
- * Test utility functions for multipaint app tests
+ * Test utility functions for kidsmultipaint app tests
  */
 
 const { expect } = require('@playwright/test');

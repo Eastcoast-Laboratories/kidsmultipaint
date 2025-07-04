@@ -79,7 +79,7 @@ export function chords() {
      */
     updateChordButtonsVisibility() {
       // Get the current progress for chord characters activity
-      const progressData = localStorage.getItem('multipaint_chords_progress');
+      const progressData = localStorage.getItem('kidsmultipaint_chords_progress');
       const progress = progressData ? 
         JSON.parse(progressData)['2_5_chords_characters'] || 0 : 
         this?.progress?.['2_5_chords_characters'] || 0;
@@ -157,7 +157,7 @@ export function chords() {
       
       // Initialize chord progress
       try {
-        const progressData = localStorage.getItem('multipaint_chords_progress');
+        const progressData = localStorage.getItem('kidsmultipaint_chords_progress');
         this.progress = progressData ? JSON.parse(progressData) : {};
       } catch (e) {
         console.error('Error reading progress:', e);
@@ -206,11 +206,11 @@ export function chords() {
       document.addEventListener('touchstart', this.initAudio.bind(this), { once: true });
       
       // Listen for global events
-      window.addEventListener('multipaint:stopallsounds', this.stopAllSounds.bind(this));
+      window.addEventListener('kidsmultipaint:stopallsounds', this.stopAllSounds.bind(this));
       
       // Try to load saved progress from localStorage
       try {
-        const savedProgress = localStorage.getItem('multipaint_chords_progress');
+        const savedProgress = localStorage.getItem('kidsmultipaint_chords_progress');
         if (savedProgress) {
           this.progress = JSON.parse(savedProgress);
           
@@ -512,7 +512,7 @@ export function chords() {
       // Speichere den bisherigen Fortschritt für die aktuelle Aktivität
       if (this.mode && this.mode !== 'main' && this.progress) {
         this.progress[this.mode] = this.totalQuestions;
-        localStorage.setItem('multipaint_chords_progress', JSON.stringify(this.progress));
+        localStorage.setItem('kidsmultipaint_chords_progress', JSON.stringify(this.progress));
         debugLog('CHORDS', `Saved progress for ${this.mode}: ${this.totalQuestions}`);
         this.updateChordButtonsVisibility();
       }
@@ -912,7 +912,7 @@ export function chords() {
       // Select a random chord type if none is set
       if (!this.currentChordType) {
         // Get the current progress for this activity
-        const progressData = localStorage.getItem('multipaint_chords_progress');
+        const progressData = localStorage.getItem('kidsmultipaint_chords_progress');
         const progress = progressData ? 
           JSON.parse(progressData)['2_5_chords_characters'] || 0 : 
           this?.progress?.['2_5_chords_characters'] || 0;
@@ -1016,7 +1016,7 @@ export function chords() {
         debugLog('CHORDS', '[REPETITION] No current chord type, generating a new one');
         
         // Get the current progress for this activity
-        const progressData = localStorage.getItem('multipaint_chords_progress');
+        const progressData = localStorage.getItem('kidsmultipaint_chords_progress');
         const progress = progressData ? 
           JSON.parse(progressData)['2_5_chords_characters'] || 0 : 
           this?.progress?.['2_5_chords_characters'] || 0;
@@ -1099,7 +1099,7 @@ export function chords() {
         this.progress['2_5_chords_characters']++;
         
         // Speichere den Fortschritt in localStorage
-        localStorage.setItem('multipaint_chords_progress', JSON.stringify(this.progress));
+        localStorage.setItem('kidsmultipaint_chords_progress', JSON.stringify(this.progress));
         
         // Aktualisiere den Hintergrund basierend auf dem neuen Fortschritt
         updateCharacterBackground(this);

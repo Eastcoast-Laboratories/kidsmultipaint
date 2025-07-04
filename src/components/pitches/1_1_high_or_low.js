@@ -50,7 +50,7 @@ export function reset_1_1_HighOrLow_Progress(component) {
   component.gameStarted = false;
   
   // Clear localStorage
-  localStorage.removeItem('multipaint_progress_high_or_low');
+  localStorage.removeItem('kidsmultipaint_progress_high_or_low');
   
   // Update progress object
   component.progress['1_1_pitches_high_or_low'] = 0;

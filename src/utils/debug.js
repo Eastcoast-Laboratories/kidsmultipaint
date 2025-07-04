@@ -45,11 +45,11 @@ const initDebugMode = (forceDebug = false) => {
     // But add a prefix to make it clear they're from the app
     const originalConsoleError = console.error;
     console.error = (...args) => {
-      originalConsoleError('multipaint ERROR:', ...args);
+      originalConsoleError('kidsmultipaint ERROR:', ...args);
     };
     const originalConsoleWarn = console.warn;
     console.warn = (...args) => {
-      originalConsoleWarn('multipaint WARNING:', ...args);
+      originalConsoleWarn('kidsmultipaint WARNING:', ...args);
     };
   }
 };
@@ -90,7 +90,7 @@ window.debugLog = debugLog;
  */
 const enableDebugMode = () => {
   // Store in session storage to persist page refreshes
-  sessionStorage.setItem('multipaint_debug', 'true');
+  sessionStorage.setItem('kidsmultipaint_debug', 'true');
   window.location.reload();
 };
 
@@ -99,7 +99,7 @@ const enableDebugMode = () => {
  */
 const disableDebugMode = () => {
   // Remove from session storage
-  sessionStorage.removeItem('multipaint_debug');
+  sessionStorage.removeItem('kidsmultipaint_debug');
   window.location.reload();
 };
 
@@ -110,7 +110,7 @@ const checkStoredDebugSettings = () => {
   const debugParam = urlParams.get('debug');
   
   // Check session storage
-  const storedDebug = sessionStorage.getItem('multipaint_debug');
+  const storedDebug = sessionStorage.getItem('kidsmultipaint_debug');
   
   // Initialize based on stored settings
   if (debugParam === 'true' || storedDebug === 'true') {
@@ -124,7 +124,7 @@ const checkStoredDebugSettings = () => {
 };
 
 // Make debug functions available globally
-window.multipaintDebug = {
+window.kidsmultipaintDebug = {
   enable: enableDebugMode,
   disable: disableDebugMode,
   status: () => isDebugMode

@@ -1,4 +1,4 @@
-// UI enhancements for multipaint
+// UI enhancements for kidsmultipaint
 // 1. Left arrow Home buttons that respect menu lock state
 // 2. Debug helper functions
 
@@ -15,11 +15,11 @@ function updateHomeButtonsVisibility() {
       menuLocked = appRoot.__x.getUnobservedData().menuLocked;
     } else {
       // Fallback to localStorage if Alpine.js state is not available
-      menuLocked = localStorage.getItem('multipaint_menu_locked') === 'true';
+      menuLocked = localStorage.getItem('kidsmultipaint_menu_locked') === 'true';
     }
   } catch (error) {
     // Fallback to localStorage if there's an error
-    menuLocked = localStorage.getItem('multipaint_menu_locked') === 'true';
+    menuLocked = localStorage.getItem('kidsmultipaint_menu_locked') === 'true';
     // Use debug logging for errors
     import('../utils/debug').then(({ debugLog }) => {
       debugLog('UI', `Error accessing Alpine data, falling back to localStorage: ${error.message}`);
