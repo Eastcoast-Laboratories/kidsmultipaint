@@ -1,72 +1,50 @@
 kidsmultipaint
 ======
 
-Learn music with animal friends, melodies, and puzzles – playful and colorful!
+Explore creative drawing with a child-friendly paint app – playful, colorful, and easy to use!
 
 # Description
 
-kidsmultipaint – Discover Music with Heart and Ear
+kidsmultipaint – Creative Drawing Made Fun
 
-With kidsmultipaint, children dive into the colorful world of music! In a playful way and with lovingly designed animal characters, they learn about pitch, melody, timbre, and rhythm – all without any prior knowledge.
+With kidsmultipaint, children dive into the colorful world of digital painting! In a playful way with an intuitive interface, they can explore drawing, colors, and shapes – all without any prior knowledge or technical skills.
 
 What can your child expect in kidsmultipaint?
 
-- Chapter 1: Pitch & Melody
-  This is where it all begins! Children recognize pitches by listening and playing them back.
+- Full-Screen Canvas
+  A spacious digital canvas where creativity has no limits! Children can draw freely with different brushes and colors.
 
-- Child-friendly activities
-  - Listen to familiar children's songs and decide whether they sound right or "off"
-  - Choose animal friends for good or strange-sounding tones
-  - Play back simple melodies
-  - Explore rising, falling, or jumping melodies
+- Child-friendly features
+  - Simple, intuitive brush controls
+  - Various colors to choose from
+  - Different drawing modes
+  - Clear canvas option when starting fresh
+  - Undo functionality
 
-- Visuals that support understanding Colors, shapes, and motion help children intuitively grasp musical concepts.
+- Child lock protection
+  A special child lock keeps children in drawing mode while preventing accidental changes to settings.
 
 Intuitive navigation
-kidsmultipaint is specially designed for young children – no complex menus, just a clear, image-based interface with a bird as the play button and more.
+kidsmultipaint is specially designed for young children – no complex menus, just a simple interface with clear, accessible controls.
 
-Beautiful illustrations
-The scenes resemble hand-painted picture books: warm, calm, and full of charm.
+Clean, distraction-free design
+The app focuses on the drawing experience without unnecessary elements or distractions.
 
 No ads, no in-app purchases
-Fully usable offline, with no distractions – just music, play, and joy.
+Fully usable offline, with no distractions – just drawing, creativity, and joy.
 
-Perfect for preschool-aged children, parents who want to support early musical learning, and educators looking to make sound worlds accessible to kids.
+Perfect for preschool-aged children, parents who want to encourage creative expression, and educators looking for a simple digital art tool for kids.
 
-
-# Kurzbeschreibung
-
-Lerne Musik mit Tierfreunden, Melodien und Rätseln – spielerisch & bunt!
 
 # Beschreibung
 
-kidsmultipaint – Musik entdecken mit Herz und Ohr
-Mit kidsmultipaint tauchen Kinder ab in die bunte Welt der Musik! Spielerisch und mit liebevoll gestalteten Tiercharakteren lernen sie Tonhöhen, Melodien, Klangfarben und Rhythmen kennen – ganz ohne Vorkenntnisse.
-
-🎶 Was erwartet dein Kind in kidsmultipaint?
-
-- Kapitel 1: Tonhöhen & Melodien
-- Hier beginnt alles! Kinder erkennen Tonhöhen durch Hören, und Nachspielen.
-
-- Kindgerechte Übungen
-    ➤ Höre bekannte Kinderlieder und finde heraus, ob sie richtig oder „schräg“ gespielt wurden
-    ➤ Wähle passende Tierfreunde für gute oder schräge Töne
-    ➤ Spiele Melodien nach
-    ➤ Erforsche aufsteigende, absteigende oder hüpfende Melodien
-
-- Visualisierungen helfen beim Verstehen
-- Farben, Formen und Bewegungen machen Musik intuitiv begreifbar.
-
 🐦 Intuitive Bedienung
-kidsmultipaint ist speziell für kleine Kinder entwickelt – keine komplizierten Menüs, sondern eine klare, bildgestützte Navigation mit Play-Button-Vogel und Co.
-
-🌸 Wunderschöne Illustrationen. Die Szenen erinnern an handgemalte Bilderbücher: liebevoll, ruhig, warm.
+kidsmultipaint ist speziell für kleine Kinder entwickelt – keine komplizierten Menüs, sondern eine klare, bildgestützte Navigation
 
 🎵 Keine Werbung, keine In-App-Käufe
 Vollständig offline nutzbar, keine Ablenkung – nur Musik, Spiel und Freude.
 
-Ideal für Kinder im Vorschulalter, für Eltern, die musikalische Früherziehung spielerisch begleiten möchten, und für Pädagog:innen, die Klangwelten zugänglich machen wollen.
-
+Ideal für Kinder im Vorschulalter, für Eltern, 
 
 # Requirements
 
@@ -132,7 +110,7 @@ npm run build
 ls -la dist/
 
 # 3. Upload to the server (make sure you're in the project root directory)
-rsync -avz --no-perms --no-owner --no-group --delete dist/ root@vm06.eclabs:/var/kunden/webs/ruben/www/kidsmultipaint.z11.de/
+rsync -avz --no-perms --no-owner --no-group --delete dist/ your_server_dir
 
 # 4. Resume development (optional)
 npm run watch

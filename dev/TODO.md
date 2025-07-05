@@ -1,6 +1,7 @@
 TODO
 ====
 
+- unlock button transparent, wenn gelockt
 - settings sollen einen basic und einen expertenmodus bekommen: im expertenmodus alles aussser diesen soll erst sichtbar werden, wenn man den expertenmode einschaltet
  - line-width
  - Line color

@@ -51,6 +51,7 @@
 - JavaScript error: "can't access lexical declaration 'settingsToggle' before initialization" in toggleMenuLock must be fixed.
 - Regression fixed: toolbar variable declarations moved before usage; painting and settings functionality restored.
 - Fixed settings button CSS: now uses #settings-toggle selector so it appears at the top right at 80px width and does not stretch to 100% width.
+- Make unlock button transparent when locked (active requirement).
 
 ## Task List
 - [x] Remove all images from app/images and src/images.
@@ -89,6 +90,7 @@
   - [x] Ensure accessibility and responsive behavior
 - [x] Adjust child lock so it only protects the settings button (not the whole app/canvas)
 - [x] Fix regression: restore painting functionality and fix settings button (JS error with settingsToggle)
+- [ ] Make unlock button transparent when locked
 
 ## Current Goal
-Awaiting next user instruction.
+Make unlock button transparent when locked
