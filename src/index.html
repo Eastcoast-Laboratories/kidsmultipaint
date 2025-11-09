@@ -229,6 +229,7 @@
           unlockedIcon.style.display = 'none';
           lockHint.textContent = 'Hold 3 sec. to unlock';
           lockHint.style.display = '';
+          menuLockButton.classList.add('locked');
           
           // Hide settings button when locked
           settingsToggle.style.display = 'none';
@@ -237,6 +238,7 @@
           lockedIcon.style.display = 'none';
           unlockedIcon.style.display = '';
           lockHint.style.display = 'none';
+          menuLockButton.classList.remove('locked');
           
           // Show settings toggle when unlocked
           settingsToggle.style.display = 'block';

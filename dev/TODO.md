@@ -1,7 +1,6 @@
 TODO
 ====
 
-- unlock button transparent, wenn gelockt
 - settings sollen einen basic und einen expertenmodus bekommen: im expertenmodus alles aussser diesen soll erst sichtbar werden, wenn man den expertenmode einschaltet
  - line-width
  - Line color
@@ -12,6 +11,7 @@ TODO
 - Undo-funktion
 - automatisches abspeichern der undo history im localstorage (historysize in expert-settings)
 - speicher-funktion als datei
+- neues Icon
 
 # prio B
 - expertenmode: hintergrund farbe aenderbar oder ein bild auswählbar

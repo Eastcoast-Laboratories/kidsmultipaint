@@ -1,4 +1,3 @@
-import { debugLog } from '../utils/debug';
 import config from '../config.js';
 
 /**
@@ -150,10 +149,7 @@ export function app() {
       // Make strings available globally via Alpine store
       Alpine.store('strings', appStrings);
       
-      // Import debug utils for logging
-      import('../utils/debug').then(({ debugLog }) => {
-        debugLog('APP', 'String resources loaded from XML');
-      });
+      console.log('String resources loaded from XML');
     },
     
     resetSpeech() {
@@ -423,11 +419,7 @@ export function app() {
         // Show notification to user that they were referred
         this.$nextTick(() => {
           // Display a toast or notification
-          this.$dispatch('show-toast', {
-            message: this.$store.strings?.referred_by_friend || 'You were referred by a friend!',
-            type: 'info',
-            duration: 5000
-          });
+          this.showToast(this.$store.strings?.referred_by_friend || 'You were referred by a friend!');
         });
         
         // Remove only the 'ref' parameter from URL hash to prevent duplicate processing
@@ -1126,79 +1118,7 @@ export function app() {
      * This addresses both iOS and Android requirements for user interaction to enable audio
      */
     async unlockAudio() {
-      // Import debug utils for consistent logging
-      const { debugLog } = await import('../utils/debug');
-      // debugLog('AUDIO', 'Attempting to unlock audio...');
-      
-      if (this.isAudioEnabled && this.audioContext && this.audioContext.state === 'running') {
-        // debugLog('AUDIO', 'Audio already unlocked and running');
-        return;
-      }
-      
-      try {
-        // Create audio context if it doesn't exist
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        // Import debug utils for consistent logging
-        const { debugLog } = await import('../utils/debug');
-        
-        if (!this.audioContext) {
-          this.audioContext = new AudioContext();
-          debugLog('AUDIO', `Created new AudioContext, state: ${this.audioContext.state}`);
-        }
-        
-        // Resume the audio context (mobile browsers often start in 'suspended' state)
-        if (this.audioContext.state === 'suspended') {
-          await this.audioContext.resume();
-        }
-        
-        // Play a silent buffer to unlock audio
-        const buffer = this.audioContext.createBuffer(1, 1, 22050);
-        const source = this.audioContext.createBufferSource();
-        source.buffer = buffer;
-        source.connect(this.audioContext.destination);
-        source.start(0);
-        
-        // Initialize the central audio engine
-        debugLog('AUDIO', 'Initializing the central audio engine...');
-        try {
-          const audioEngine = (await import('./audio-engine.js')).default;
-          await audioEngine.initialize();
-          debugLog('AUDIO', 'Central audio engine initialized successfully');
-        } catch (engineError) {
-          console.error('Failed to initialize central audio engine:', engineError);
-        }
-        
-        this.isAudioEnabled = true;
-        debugLog('AUDIO', 'Audio unlocked successfully');
-        
-        // Special handling for Android Chrome
-        const isAndroid = /Android/.test(navigator.userAgent);
-        const isChrome = /Chrome/.test(navigator.userAgent);
-        
-        if (isAndroid && isChrome) {
-          console.log('Android Chrome detected, applying special audio handling');
-          // Additional audio setup specifically for Android Chrome
-          document.addEventListener('visibilitychange', () => {
-            if (!document.hidden && this.audioContext && this.audioContext.state === 'suspended') {
-              this.audioContext.resume().then(() => {
-                console.log('AudioContext resumed after visibility change');
-              });
-            }
-          });
-          
-          // Apply Android-specific optimizations
-          this.initAndroidAudio();
-        }
-        
-        // Only remove listeners if we're confident audio is working
-        if (this.audioContext.state === 'running') {
-          ['touchstart', 'touchend', 'mousedown', 'keydown'].forEach(eventType => {
-            document.documentElement.removeEventListener(eventType, this.unlockAudio.bind(this), true);
-          });
-        }
-      } catch (error) {
-        console.error('Failed to unlock audio:', error);
-      }
+      return true;
     },
     
     // initAudio method removed - functionality moved into unlockAudio
@@ -1209,38 +1129,7 @@ export function app() {
      * No longer creates a separate audio context but ensures the central audio engine works well on Android
      */
     async initAndroidAudio() {
-      // Import debug utils for consistent logging
-      const { debugLog } = await import('../utils/debug');
-      debugLog('AUDIO', 'Applying Android-specific audio optimizations');
-      
-      try {
-        // Import the central audio engine and Tone.js dynamically
-        const [audioEngineModule, ToneModule] = await Promise.all([
-          import('./audio-engine.js'),
-          import('tone')
-        ]);
-        const audioEngine = audioEngineModule.default;
-        const Tone = ToneModule;
-        
-        // Make sure Tone.js is initialized and running on Android
-        const toneContext = Tone.getContext().rawContext;
-        debugLog('AUDIO', `Tone.js audio context state: ${toneContext.state}`);
-        
-        // Force resume the Tone.js context if needed
-        if (toneContext.state === 'suspended') {
-          debugLog('AUDIO', 'Attempting to resume Tone.js audio context for Android');
-          await toneContext.resume();
-          debugLog('AUDIO', 'Tone.js audio context resumed for Android');
-        }
-        
-        // Additional Android-specific settings can be applied here if needed
-        // For example, lower latency settings for Tone.js on Android
-        
-        debugLog('AUDIO', 'Android audio optimizations applied successfully');
-        this.isAudioEnabled = true;
-      } catch (error) {
-        console.error('Failed to apply Android audio optimizations:', error);
-      }
+      return true;
     },
     
     /**

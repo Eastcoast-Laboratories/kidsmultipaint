@@ -228,9 +228,6 @@ module.exports = (env, argv) => {
           { from: 'homepage/icons', to: 'icons' },
           { from: 'homepage/icons', to: 'de/icons' },
           { from: 'homepage/icons', to: 'app/icons' },  // Auch für App-Verzeichnis kopieren
-          { from: 'public/images/backgrounds', to: 'images/backgrounds' },
-          { from: 'public/images/backgrounds', to: 'de/images/backgrounds' },
-          { from: 'public/images/backgrounds', to: 'app/images/backgrounds' },  // Auch für App-Verzeichnis kopieren
           { from: 'public/images', to: 'images' },
           { from: 'public/images', to: 'de/images' },
           { from: 'public/images', to: 'app/images' },  // Auch für App-Verzeichnis kopieren
@@ -242,32 +239,6 @@ module.exports = (env, argv) => {
           {
             from: 'public/images',
             to: 'images'
-          },
-          {
-            // Copy selected background images for homepage screenshots
-            from: 'public/images/backgrounds/pitches_action1_3.jpg',
-            to: 'images/screenshots/pitches_action1_3.jpg'
-          },
-          {
-            from: 'public/images/backgrounds/pitches_action1_1_sloth_mouse.jpg',
-            to: 'images/screenshots/pitches_action1_1_sloth_mouse.jpg'
-          },
-          {
-            from: 'public/images/backgrounds/pitches_bird_sings.jpg',
-            to: 'images/screenshots/pitches_bird_sings.jpg'
-          },
-          {
-            // Copy selected background images for German version
-            from: 'public/images/backgrounds/pitches_action1_3.jpg',
-            to: 'de/images/screenshots/pitches_action1_3.jpg'
-          },
-          {
-            from: 'public/images/backgrounds/pitches_action1_1_sloth_mouse.jpg',
-            to: 'de/images/screenshots/pitches_action1_1_sloth_mouse.jpg'
-          },
-          {
-            from: 'public/images/backgrounds/pitches_bird_sings.jpg',
-            to: 'de/images/screenshots/pitches_bird_sings.jpg'
           },
           {
             // Copy package.json for version display in credits

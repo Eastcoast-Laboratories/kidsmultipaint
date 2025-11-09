@@ -5,12 +5,6 @@ import Alpine from 'alpinejs';
 import './styles/main.css';
 import './styles/clickable-map.css';
 
-// Import Debug Utility
-import { checkStoredDebugSettings, debugLog } from './utils/debug';
-
-// Import HTML include utility
-import { loadHtmlPartials } from './utils/html-include';
-
 // Initialize debug mode first, before any other operations
 checkStoredDebugSettings();
 
@@ -19,14 +13,6 @@ import { initCapacitor } from './capacitor';
 
 // Import components
 import { app } from './components/app';
-import { tonecolors } from './components/tonecolors';
-import { pitches } from './components/pitches';
-import { rhythms } from './components/rhythms';
-import { chords } from './components/chords';
-import { freeplay } from './components/freeplay';
-
-// Import UI enhancements
-import './components/ui-enhancements';
 
 // Log application startup in debug mode
 debugLog('App', 'Application initializing');
