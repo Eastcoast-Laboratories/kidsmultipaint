@@ -1,10 +1,7 @@
 TODO
 ====
 
-- settings sollen einen basic und einen expertenmodus bekommen: im expertenmodus alles aussser diesen soll erst sichtbar werden, wenn man den expertenmode einschaltet
- - line-width
- - Line color
- - clear
+- Implementiere in den Einstellungen einen Basic- und einen Expertenmodus. Im Expertenmodus sollen nur die Optionen "Line Width", "Line Color" und "Clear" sichtbar sein, wenn der Expertenmodus aktiviert wird. Stelle sicher, dass der Wechsel zwischen den Modi intuitiv erfolgt und die UI entsprechend aktualisiert wird.
 - line width verbessern: einen ball in der richtigen grösse daneben anzeigen, der sich mit dem regler anpasst
 - letzte farbe und line-width in localstorage speichern und bei app start laden
 - basic menu (ausser clear button) immer sichtbar als balken oben (dies soll einstellbar sein als "pin-toggle" im expertenmode)

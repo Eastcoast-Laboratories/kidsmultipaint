@@ -150,7 +150,7 @@
   <!-- Settings toggle button (always visible) -->
   <button id="settings-toggle">⚙️ Settings</button>
   
-  <div id="toolbar" style="display: none;">
+  <div id="toolbar" style="display: none;" x-data>
     <button id="close-toolbar" style="float:right; background-color: #dc3545;">✖</button>
     <div style="clear:both; margin-bottom: 10px;"></div>
     
@@ -172,15 +172,17 @@
             <option>texture</option>
           </select>
         </label>
-        <label for="drawing-line-width">
-          Line width:
-          <span class="info">30</span>
-          <input type="range" min="0" max="150" id="drawing-line-width" value="30" />
-        </label>
-        <label for="drawing-color">
-          Line color:
-          <input type="color" id="drawing-color" value="#005E7A" />
-        </label>
+        <div x-show="$store.mascotSettings.expertMode">
+          <label for="drawing-line-width">
+            Line width:
+            <span class="info">30</span>
+            <input type="range" min="0" max="150" id="drawing-line-width" value="30" />
+          </label>
+          <label for="drawing-color">
+            Line color:
+            <input type="color" id="drawing-color" value="#005E7A" />
+          </label>
+        </div>
         <label for="drawing-shadow-color">
           Shadow color:
           <input type="color" id="drawing-shadow-color" value="#005E7A" />
@@ -196,6 +198,7 @@
           <input type="range" min="0" max="50" id="drawing-shadow-offset" value="0" />
         </label>
       </div>
+      <button @click="$store.mascotSettings.toggleExpertMode()">Toggle Expert Mode</button>
     </div>
   </div>
 

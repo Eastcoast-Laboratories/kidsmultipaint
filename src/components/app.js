@@ -1,4 +1,5 @@
 import config from '../config.js';
+import { debugLog } from '../utils/debug.js';
 
 /**
  * Main application component

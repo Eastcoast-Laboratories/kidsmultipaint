@@ -5,11 +5,11 @@ import Alpine from 'alpinejs';
 import './styles/main.css';
 import './styles/clickable-map.css';
 
-// Initialize debug mode first, before any other operations
-checkStoredDebugSettings();
-
 // Import Capacitor initialization
 import { initCapacitor } from './capacitor';
+
+// Import debug utilities
+import { debugLog } from './utils/debug';
 
 // Import components
 import { app } from './components/app';
@@ -25,6 +25,7 @@ Alpine.store('mascotSettings', {
   showHelpMessages: true,
   seenActivityMessages: {},
   disableTTS: true,
+  expertMode: false,
   
   // Load settings from localStorage
   init() {
@@ -37,6 +38,7 @@ Alpine.store('mascotSettings', {
           showHelpMessages: true,
           seenActivityMessages: {},
           disableTTS: true,
+          expertMode: false,
           ...loadedSettings
         });
         // Reset seen messages on app start
@@ -55,7 +57,8 @@ Alpine.store('mascotSettings', {
       localStorage.setItem('kidsmultipaint_mascot_settings', JSON.stringify({
         showHelpMessages: this.showHelpMessages,
         seenActivityMessages: this.seenActivityMessages,
-        disableTTS: this.disableTTS
+        disableTTS: this.disableTTS,
+        expertMode: this.expertMode
       }));
       console.log('MASCOT_STORE: Settings saved');
     } catch (error) {
@@ -75,16 +78,30 @@ Alpine.store('mascotSettings', {
     this.showHelpMessages = false;
     this.save();
     console.log('MASCOT_STORE: Help messages disabled via close button');
+  },
+  
+  // Toggle expert mode
+  toggleExpertMode() {
+    console.log('EXPERT_MODE_TOGGLE: Before toggle, expertMode is', this.expertMode);
+    this.expertMode = !this.expertMode;
+    console.log('EXPERT_MODE_TOGGLE: After toggle (before save), expertMode is', this.expertMode);
+    this.save();
+    console.log('EXPERT_MODE_TOGGLE: After save, expertMode is', this.expertMode);
+    // Force Alpine to detect the change
+    this.$nextTick && this.$nextTick(() => {
+      console.log('EXPERT_MODE_TOGGLE: In nextTick, expertMode is', this.expertMode);
+    });
   }
 });
 
 // Register Alpine components
 Alpine.data('app', app);
-Alpine.data('tonecolors', tonecolors);
-Alpine.data('pitches', pitches);
-Alpine.data('rhythms', rhythms);
-Alpine.data('chords', chords);
-Alpine.data('freeplay', freeplay);
+// Note: Other components (tonecolors, pitches, rhythms, chords, freeplay) are not imported yet
+// Alpine.data('tonecolors', tonecolors);
+// Alpine.data('pitches', pitches);
+// Alpine.data('rhythms', rhythms);
+// Alpine.data('chords', chords);
+// Alpine.data('freeplay', freeplay);
 
 // Initialize Capacitor when device is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -105,8 +122,10 @@ window.Alpine = Alpine;
 // Start Alpine.js
 Alpine.start();
 
-// Load HTML partials after Alpine is initialized
-loadHtmlPartials();
+// Load HTML partials after Alpine is initialized (if function exists)
+if (typeof loadHtmlPartials === 'function') {
+  loadHtmlPartials();
+}
 
 // Initialize mascot settings after Alpine starts
 Alpine.store('mascotSettings').init();
